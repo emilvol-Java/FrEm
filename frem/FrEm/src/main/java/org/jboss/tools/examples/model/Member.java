@@ -50,6 +50,7 @@ public class Member implements Serializable {
 //    @OneToOne
 //    private ContactInfo details;
     
+    
     @NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[^0-9]*", message = "Given name must not contain numbers")
