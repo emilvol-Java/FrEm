@@ -25,7 +25,7 @@ public class DogController {
     private Dog newDog;
 
     @PostConstruct
-    public void initNewMember() {
+    public void initNewDog() {
         newDog = new Dog();
     }
 
@@ -34,7 +34,7 @@ public class DogController {
             dogRegistration.register(newDog);
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
             facesContext.addMessage(null, m);
-            initNewMember();
+            initNewDog();
         } catch (Exception e) {
             String errorMessage = getRootErrorMessage(e);
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
