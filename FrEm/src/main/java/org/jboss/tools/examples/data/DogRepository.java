@@ -8,6 +8,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 
+import org.jboss.tools.examples.model.Dog;
 import org.jboss.tools.examples.model.Member;
 
 public class DogRepository {

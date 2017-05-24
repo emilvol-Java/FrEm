@@ -9,6 +9,7 @@ import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.jboss.tools.examples.model.Dog;
 import org.jboss.tools.examples.model.Member;
 
 public class DogListProducer {
@@ -32,6 +33,6 @@ public class DogListProducer {
 
     @PostConstruct
     public void retrieveAllMembersOrderedByName() {
-        dogs = memberRepository.findAllOrderedByName();
+        dogs = dogRepository.findAllOrderedByName();
     }
 }

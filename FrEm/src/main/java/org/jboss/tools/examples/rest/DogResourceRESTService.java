@@ -23,8 +23,11 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.jboss.tools.examples.data.DogRepository;
 import org.jboss.tools.examples.data.MemberRepository;
+import org.jboss.tools.examples.model.Dog;
 import org.jboss.tools.examples.model.Member;
+import org.jboss.tools.examples.service.DogRegistration;
 import org.jboss.tools.examples.service.MemberRegistration;
 
 public class DogResourceRESTService {
@@ -42,15 +45,15 @@ public class DogResourceRESTService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Member> listAllDogs() {
+    public List<Dog> listAllDogs() {
         return repository.findAllOrderedByName();
     }
 
     @GET
     @Path("/{id:[0-9][0-9]*}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Member lookupDogById(@PathParam("id") long id) {
-        Member dog = repository.findById(id);
+    public Dog lookupDogById(@PathParam("id") long id) {
+        Dog dog = repository.findById(id);
         if (dog == null) {
             throw new WebApplicationException(Response.Status.NOT_FOUND);
         }
@@ -64,7 +67,7 @@ public class DogResourceRESTService {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createDog(Member dog) {
+    public Response createDog(Dog dog) {
 
         Response.ResponseBuilder builder = null;
 

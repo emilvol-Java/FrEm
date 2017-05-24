@@ -6,6 +6,7 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import org.jboss.tools.examples.model.Dog;
 import org.jboss.tools.examples.model.Member;
 
 public class DogRegistration {
@@ -19,7 +20,7 @@ public class DogRegistration {
     private Event<Dog> memberEventSrc;
 
     public void register(Dog dog) throws Exception {
-        log.info("Registering " + dog.getName()+ " " + dog.getRace());
+        log.info("Registering " + dog.getName()+ " " + dog.getBreed());
         em.persist(dog);
         memberEventSrc.fire(dog);
     }
