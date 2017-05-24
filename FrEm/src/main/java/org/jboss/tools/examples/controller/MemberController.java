@@ -24,7 +24,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.jboss.tools.examples.model.Member;
+import org.jboss.tools.examples.model.Dog;
 import org.jboss.tools.examples.service.MemberRegistration;
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
@@ -42,11 +42,11 @@ public class MemberController {
 
     @Produces
     @Named
-    private Member newMember;
+    private Dog newMember;
 
     @PostConstruct
     public void initNewMember() {
-        newMember = new Member();
+        newMember = new Dog();
     }
 
     public void register() throws Exception {

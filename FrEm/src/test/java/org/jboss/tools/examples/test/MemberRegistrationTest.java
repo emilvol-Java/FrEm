@@ -24,7 +24,7 @@ import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.tools.examples.model.Member;
+import org.jboss.tools.examples.model.Dog;
 import org.jboss.tools.examples.service.MemberRegistration;
 import org.jboss.tools.examples.util.Resources;
 import org.jboss.shrinkwrap.api.Archive;
@@ -39,7 +39,7 @@ public class MemberRegistrationTest {
     @Deployment
     public static Archive<?> createTestArchive() {
         return ShrinkWrap.create(WebArchive.class, "test.war")
-                .addClasses(Member.class, MemberRegistration.class, Resources.class)
+                .addClasses(Dog.class, MemberRegistration.class, Resources.class)
                 .addAsResource("META-INF/test-persistence.xml", "META-INF/persistence.xml")
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
                 // Deploy our test datasource
@@ -54,7 +54,7 @@ public class MemberRegistrationTest {
 
     @Test
     public void testRegister() throws Exception {
-        Member newMember = new Member();
+        Dog newMember = new Dog();
         newMember.setfName("Jane");
         newMember.setsName("Doe");
         newMember.setEmail("jane@mailinator.com");

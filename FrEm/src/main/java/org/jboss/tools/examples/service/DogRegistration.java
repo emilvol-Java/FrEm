@@ -6,7 +6,7 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import org.jboss.tools.examples.model.Member;
+import org.jboss.tools.examples.model.Dog;
 
 public class DogRegistration {
     @Inject

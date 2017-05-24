@@ -25,7 +25,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
-import org.jboss.tools.examples.model.Member;
+import org.jboss.tools.examples.model.Dog;
 
 @RequestScoped
 public class MemberListProducer {
@@ -33,17 +33,17 @@ public class MemberListProducer {
     @Inject
     private MemberRepository memberRepository;
 
-    private List<Member> members;
+    private List<Dog> members;
 
     // @Named provides access the return value via the EL variable name "members" in the UI (e.g.
     // Facelets or JSP view)
     @Produces
     @Named
-    public List<Member> getMembers() {
+    public List<Dog> getMembers() {
         return members;
     }
 
-    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Member member) {
+    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Dog member) {
         retrieveAllMembersOrderedByName();
     }
 
