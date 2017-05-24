@@ -20,7 +20,7 @@ public class DogListProducer {
     private List<Dog> dogs;
 
     // @Named provides access the return value via the EL variable name "members" in the UI (e.g.
-    // Facelets or JSP view)  
+    // Facelets or JSP view)   
     @Produces
     @Named
     public List<Dog> getDogs() {

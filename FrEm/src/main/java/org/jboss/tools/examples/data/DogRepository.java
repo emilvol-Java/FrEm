@@ -19,7 +19,7 @@ public class DogRepository {
 	        return em.find(Dog.class, id);
 	    }
 	    	
-//
+//  
 
 	    public List<Dog> findAllOrderedByName() {
 	        CriteriaBuilder cb = em.getCriteriaBuilder();
