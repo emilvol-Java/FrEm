@@ -22,7 +22,7 @@ public class CourseController {
 	    private Course newCourse;
 
 	    @PostConstruct
-	    public void initNewMember() {
+	    public void initNewCourse() {
 	        newCourse = new Course();
 	    }
 
@@ -31,7 +31,7 @@ public class CourseController {
 	            dogRegistration.register(newCourse);
 	            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
 	            facesContext.addMessage(null, m);
-	            initNewMember();
+	            initNewCourse();
 	        } catch (Exception e) {
 	            String errorMessage = getRootErrorMessage(e);
 	            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
