@@ -25,7 +25,7 @@ public class DogController {
 
     @PostConstruct
     public void initNewMember() {
-        newDog = new Member();
+        newDog = new Dog();
     }
 
     public void register() throws Exception {

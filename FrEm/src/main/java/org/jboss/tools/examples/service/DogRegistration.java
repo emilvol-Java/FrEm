@@ -16,9 +16,9 @@ public class DogRegistration {
     private EntityManager em;
 
     @Inject
-    private Event<dog> memberEventSrc;
+    private Event<Dog> memberEventSrc;
 
-    public void register(Member dog) throws Exception {
+    public void register(Dog dog) throws Exception {
         log.info("Registering " + dog.getName()+ " " + dog.getRace());
         em.persist(dog);
         memberEventSrc.fire(dog);
