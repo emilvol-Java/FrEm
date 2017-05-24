@@ -16,12 +16,12 @@ public class CourseRegistration {
 	    private EntityManager em;
 
 	    @Inject
-	    private Event<Course> memberEventSrc;
+	    private Event<Course> courseEventSrc;
 
 	    public void register(Course course) throws Exception {
-	        log.info("Registering " + course.getName()+ " " + course.getBreed());
+	        log.info("Registering " + course.getCourseName()+ " "+course.getId());
 	        em.persist(course);
-	        memberEventSrc.fire(course);
+	        courseEventSrc.fire(course);
 	    }
 	    //  
 }
