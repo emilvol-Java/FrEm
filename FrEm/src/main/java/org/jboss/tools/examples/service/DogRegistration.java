@@ -24,4 +24,5 @@ public class DogRegistration {
         em.persist(dog);
         memberEventSrc.fire(dog);
     }
+    //
 }
