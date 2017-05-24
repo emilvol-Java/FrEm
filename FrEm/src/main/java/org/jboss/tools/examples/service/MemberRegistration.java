@@ -16,7 +16,7 @@
  */
 package org.jboss.tools.examples.service;
 
-import org.jboss.tools.examples.model.Dog;
+import org.jboss.tools.examples.model.Member;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
@@ -35,9 +35,9 @@ public class MemberRegistration {
     private EntityManager em;
 
     @Inject
-    private Event<Dog> memberEventSrc;
+    private Event<Member> memberEventSrc;
 
-    public void register(Dog member) throws Exception {
+    public void register(Member member) throws Exception {
         log.info("Registering " + member.getfName()+ " " + member.getsName());
         em.persist(member);
         memberEventSrc.fire(member);

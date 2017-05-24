@@ -6,7 +6,7 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import org.jboss.tools.examples.model.Dog;
+import org.jboss.tools.examples.model.Member;
 
 public class DogRegistration {
     @Inject
@@ -18,7 +18,7 @@ public class DogRegistration {
     @Inject
     private Event<dog> memberEventSrc;
 
-    public void register(Dog dog) throws Exception {
+    public void register(Member dog) throws Exception {
         log.info("Registering " + dog.getName()+ " " + dog.getRace());
         em.persist(dog);
         memberEventSrc.fire(dog);

@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.jboss.tools.examples.model.Dog;
+import org.jboss.tools.examples.model.Member;
 import org.jboss.tools.examples.service.DogRegistration;
 import org.jboss.tools.examples.service.MemberRegistration;
 
@@ -21,11 +21,11 @@ public class DogController {
 
     @Produces
     @Named
-    private Dog newDog;
+    private Member newDog;
 
     @PostConstruct
     public void initNewMember() {
-        newDog = new Dog();
+        newDog = new Member();
     }
 
     public void register() throws Exception {
