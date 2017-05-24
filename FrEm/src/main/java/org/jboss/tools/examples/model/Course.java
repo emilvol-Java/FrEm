@@ -46,9 +46,7 @@ public class Course implements Serializable {
     @NotNull
     private DefinedDate endDate;
     
-       
-    
-    
+        
     
     @NotNull
     @Size(min = 1, max = 200)
@@ -59,7 +57,80 @@ public class Course implements Serializable {
     @NotNull
     @Size(min = 1, max = 4)
     @Pattern(regexp = "[0-9]*", message = "Number of participants at the course, must be a number.")
-    private int numParticipants;	
+    private int numParticipants;
+
+
+	
+    
+    
+    public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+	public String getCourseName() {
+		return courseName;
+	}
+
+
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
+
+
+	public int getCoursePrice() {
+		return coursePrice;
+	}
+
+
+	public void setCoursePrice(int coursePrice) {
+		this.coursePrice = coursePrice;
+	}
+
+
+	public DefinedDate getStartDate() {
+		return startDate;
+	}
+
+
+	public void setStartDate(DefinedDate startDate) {
+		this.startDate = startDate;
+	}
+
+
+	public DefinedDate getEndDate() {
+		return endDate;
+	}
+
+
+	public void setEndDate(DefinedDate endDate) {
+		this.endDate = endDate;
+	}
+
+
+	public String getCourseDescr() {
+		return courseDescr;
+	}
+
+
+	public void setCourseDescr(String courseDescr) {
+		this.courseDescr = courseDescr;
+	}
+
+
+	public int getNumParticipants() {
+		return numParticipants;
+	}
+
+
+	public void setNumParticipants(int numParticipants) {
+		this.numParticipants = numParticipants;
+	}	
     
     
     
