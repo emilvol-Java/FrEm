@@ -1,20 +1,25 @@
 package org.jboss.tools.examples.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+import javax.annotation.Resource;
+import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
+import javax.inject.Named;
 import javax.xml.bind.annotation.XmlRootElement;
 
 
+@Named
 @XmlRootElement
-public class DefinedDate {
+public class DefinedDate implements Serializable{
 	
 	private String date;
 
 	public DefinedDate(){
-		setDate("1970-01-01");
+		setPresentDate();
 	}
 	public String getDate() {
 		return date;

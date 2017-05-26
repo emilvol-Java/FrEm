@@ -18,6 +18,7 @@ package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -71,6 +72,18 @@ public class Member implements Serializable {
     @Digits(fraction = 0, integer = 12)
     @Column(name = "phone_number")
     private String phoneNumber;
+    
+    
+    @Inject
+    private DefinedDate startDate;
+    
+    public Member(){
+    }
+
+	public String getStartDate() {
+		return startDate.toString();
+	}
+
 
     public Long getId() {
         return id;

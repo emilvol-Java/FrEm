@@ -37,24 +37,27 @@ public class Course implements Serializable {
     @Pattern(regexp = "[0-9]*", message = "Given course price has to be numbers")
     private int coursePrice;	
     
-//
-//    @NotNull
-//    private String startDate;
-//
-//    @NotNull
-//    private String endDate;
-//    
-//
-//	public String getStartDate() {
-//	    DefinedDate startDatee = new DefinedDate();
-//		return startDatee.getDate();
-//	}
-//
-//
-//	public void setStartDate(String start) {
-//		DefinedDate startDatee = new DefinedDate();
-//		startDatee.setPresentDate();;
-//	}
+    @Inject
+    private DefinedDate startDate;
+    
+    @Inject
+    private DefinedDate endDate;
+
+	public String getStartDate() {
+		return startDate.toString();
+	}
+
+	public void setStartDate(String start) {
+		startDate.setDate(start);;
+	}
+	
+	public String getEndDate() {
+		return endDate.toString();
+	}
+
+	public void setEndDate(String start) {
+		endDate.setDate(start);;
+	}
 
 
 	@NotNull
