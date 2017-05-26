@@ -14,7 +14,7 @@ import org.jboss.tools.examples.service.MemberRegistration;
 
 public class DogController {
 
-    @Inject
+    @Inject 
     private FacesContext facesContext;
 
     @Inject

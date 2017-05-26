@@ -23,5 +23,5 @@ public class CourseRegistration {
 	        em.persist(course);
 	        courseEventSrc.fire(course);
 	    }
-	    //  
+	    //   
 }

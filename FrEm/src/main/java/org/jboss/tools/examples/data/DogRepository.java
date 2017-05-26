@@ -26,7 +26,7 @@ public class DogRepository {
 	        CriteriaBuilder cb = em.getCriteriaBuilder();
 	        CriteriaQuery<Dog> criteria = cb.createQuery(Dog.class);
 	        Root<Dog> dog = criteria.from(Dog.class);
-	        // Swap criteria statements if you would like to try out type-safe criteria queries, a new
+	        // Swap criteria statements if you would like to try out type-safe criteria queries, a new 
 	        // feature in JPA 2.0
 	        // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
 	        criteria.select(dog).orderBy(cb.asc(dog.get("name")));

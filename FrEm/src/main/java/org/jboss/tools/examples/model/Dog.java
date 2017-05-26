@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @SuppressWarnings("serial")
 @Entity
-@XmlRootElement
+@XmlRootElement 
 public class Dog implements Serializable {
 
 	
