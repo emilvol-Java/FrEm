@@ -40,17 +40,19 @@ public class Course implements Serializable {
     private int coursePrice;	
     
 
-//    @NotNull
-    @Resource 
-    private Date startDate;
-//    
-//    
-// 
-//    @NotNull
-//    @Inject
-//    private DefinedDate endDate;
+    @NotNull
+    @Inject
+    private DefinedDate startDate;
     
-        
+    
+ 
+    @NotNull
+    @Inject
+    private DefinedDate endDate;
+    
+
+    
+    
 //    
 //    public String getStartDate() {
 //		return startDate.getDate();

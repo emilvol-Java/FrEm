@@ -11,11 +11,11 @@ import org.jboss.tools.examples.model.Course;
 import org.jboss.tools.examples.service.CourseRegistration;
 
 public class CourseController {
-	  @Inject
+		@Inject
 	    private FacesContext facesContext;
 
 	    @Inject
-	    private CourseRegistration dogRegistration;
+	    private CourseRegistration courseRegistration;
 
 	    @Produces
 	    @Named
@@ -28,7 +28,7 @@ public class CourseController {
 
 	    public void register() throws Exception {
 	        try {
-	            dogRegistration.register(newCourse);
+	            courseRegistration.register(newCourse);
 	            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
 	            facesContext.addMessage(null, m);
 	            initNewCourse();
