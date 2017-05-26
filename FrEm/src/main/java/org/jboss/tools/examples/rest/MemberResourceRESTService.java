@@ -81,6 +81,17 @@ public class MemberResourceRESTService {
         }
         return member;
     }
+    
+    @GET
+    @Path("/{id:[a-z][0-9]*}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Member lookupMemberByUsername(@PathParam("id") String user) {
+        Member member = repository.findByUser(user);
+        if (member == null) {
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        }
+        return member;
+    }
 
     /**
      * Creates a new member from the values provided. Performs validation, and will return a JAX-RS response with either 200 ok,
