@@ -1,7 +1,9 @@
 package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.annotation.Resource;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.Entity;
@@ -37,11 +39,10 @@ public class Course implements Serializable {
     @Pattern(regexp = "[0-9]*", message = "Given course price has to be numbers")
     private int coursePrice;	
     
-    
 
 //    @NotNull
-//    @Inject
-//    private DefinedDate startDate;
+    @Resource 
+    private Date startDate;
 //    
 //    
 // 
@@ -50,8 +51,31 @@ public class Course implements Serializable {
 //    private DefinedDate endDate;
     
         
-    
-    @NotNull
+//    
+//    public String getStartDate() {
+//		return startDate.getDate();
+//	}
+//
+//
+//	public void setStartDate(String date) {
+//		this.startDate.setDate(date);
+//	}
+
+//    @NotNull
+//    @Produces
+//	public String getStartDate() {
+//	    DefinedDate startDatee = new DefinedDate();
+//		return startDatee.getDate();
+//	}
+//
+//
+//	public void setStartDate(String start) {
+//		DefinedDate startDatee = new DefinedDate();
+//		startDatee.setPresentDate();;
+//	}
+
+
+	@NotNull
     @Size(min = 1, max = 200)
     @Pattern(regexp = "^[a-zA-Z0-9_]*", message = "Given description can only contain alphanumeric charachters, (a-zA-Z0-9_)")
     private String courseDescr;

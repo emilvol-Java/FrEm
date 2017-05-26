@@ -13,7 +13,9 @@ public class DefinedDate {
 	
 	private String date;
 
-	@Produces
+	public DefinedDate(){
+		setDate("1970-01-01");
+	}
 	public String getDate() {
 		return date;
 	}
