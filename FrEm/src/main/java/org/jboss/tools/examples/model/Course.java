@@ -18,10 +18,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @SuppressWarnings("serial")
 @Entity
-@XmlRootElement
+//@XmlRootElement
 public class Course implements Serializable {
- 
-    
  
     @Id
     @GeneratedValue
@@ -39,32 +37,14 @@ public class Course implements Serializable {
     @Pattern(regexp = "[0-9]*", message = "Given course price has to be numbers")
     private int coursePrice;	
     
-
-    @NotNull
-    @Inject
-    private DefinedDate startDate;
-    
-    
- 
-    @NotNull
-    @Inject
-    private DefinedDate endDate;
-    
-
-    
-    
-//    
-//    public String getStartDate() {
-//		return startDate.getDate();
-//	}
 //
-//
-//	public void setStartDate(String date) {
-//		this.startDate.setDate(date);
-//	}
-
 //    @NotNull
-//    @Produces
+//    private String startDate;
+//
+//    @NotNull
+//    private String endDate;
+//    
+//
 //	public String getStartDate() {
 //	    DefinedDate startDatee = new DefinedDate();
 //		return startDatee.getDate();

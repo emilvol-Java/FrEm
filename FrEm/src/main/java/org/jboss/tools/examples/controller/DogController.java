@@ -1,6 +1,7 @@
 package org.jboss.tools.examples.controller;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -12,6 +13,7 @@ import org.jboss.tools.examples.model.Member;
 import org.jboss.tools.examples.service.DogRegistration;
 import org.jboss.tools.examples.service.MemberRegistration;
 
+@Model
 public class DogController {
 
     @Inject 

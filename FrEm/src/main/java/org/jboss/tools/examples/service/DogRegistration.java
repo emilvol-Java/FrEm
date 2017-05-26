@@ -2,13 +2,14 @@ package org.jboss.tools.examples.service;
 
 import java.util.logging.Logger;
 
+import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import org.jboss.tools.examples.model.Dog;
-import org.jboss.tools.examples.model.Member;
 
+@Stateless
 public class DogRegistration {
     @Inject
     private Logger log;

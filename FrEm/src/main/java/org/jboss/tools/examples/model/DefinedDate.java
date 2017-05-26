@@ -35,6 +35,11 @@ public class DefinedDate {
 		this.date = dtf.format(localDate);
 	}
 	
+	@Override
+	public String toString() {
+		return date;
+	}
+	
 	
 	
 	

@@ -1,6 +1,7 @@
 package org.jboss.tools.examples.controller;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -10,6 +11,7 @@ import javax.inject.Named;
 import org.jboss.tools.examples.model.Course;
 import org.jboss.tools.examples.service.CourseRegistration;
 
+@Model
 public class CourseController {
 		@Inject
 	    private FacesContext facesContext;
