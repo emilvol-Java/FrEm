@@ -3,6 +3,7 @@ package org.jboss.tools.examples.data;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.event.Observes;
 import javax.enterprise.event.Reception;
 import javax.enterprise.inject.Produces;
@@ -10,8 +11,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.jboss.tools.examples.model.Dog;
-import org.jboss.tools.examples.model.Member;
 
+@RequestScoped
 public class DogListProducer {
 
     @Inject
@@ -27,7 +28,7 @@ public class DogListProducer {
         return dogs;
     }
 
-    public void onDogListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Dog dog) {
+    public void onDogDogChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Dog dog) {
         retrieveAllDogsOrderedByName();
     }
 

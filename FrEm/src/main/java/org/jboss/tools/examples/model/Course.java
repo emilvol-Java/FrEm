@@ -3,6 +3,7 @@ package org.jboss.tools.examples.model;
 import java.io.Serializable;
 
 import javax.enterprise.inject.Produces;
+import javax.inject.Inject;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -38,13 +39,15 @@ public class Course implements Serializable {
     
     
 
-    @NotNull
-    private DefinedDate startDate;
-    
-    
- 
-    @NotNull
-    private DefinedDate endDate;
+//    @NotNull
+//    @Inject
+//    private DefinedDate startDate;
+//    
+//    
+// 
+//    @NotNull
+//    @Inject
+//    private DefinedDate endDate;
     
         
     
@@ -93,24 +96,24 @@ public class Course implements Serializable {
 	}
 
 
-	public DefinedDate getStartDate() {
-		return startDate;
-	}
-
-
-	public void setStartDate(DefinedDate startDate) {
-		this.startDate = startDate;
-	}
-
-
-	public DefinedDate getEndDate() {
-		return endDate;
-	}
-
-
-	public void setEndDate(DefinedDate endDate) {
-		this.endDate = endDate;
-	}
+//	public DefinedDate getStartDate() {
+//		return startDate;
+//	}
+//
+//
+//	public void setStartDate(DefinedDate startDate) {
+//		this.startDate = startDate;
+//	}
+//
+//
+//	public DefinedDate getEndDate() {
+//		return endDate;
+//	}
+//
+//
+//	public void setEndDate(DefinedDate endDate) {
+//		this.endDate = endDate;
+//	}
 
 
 	public String getCourseDescr() {

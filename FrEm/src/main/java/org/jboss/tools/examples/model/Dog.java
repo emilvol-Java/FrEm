@@ -24,10 +24,6 @@ public class Dog implements Serializable {
     @GeneratedValue
     private Long id;
 
-    
-    @Inject
-    @ManyToOne
-    private Member owner;
 
     @NotNull
     @Size(min = 1, max = 25)
@@ -49,13 +45,6 @@ public class Dog implements Serializable {
     @NotNull
     private boolean vaccinated;
 
-	public Member getOwner() {
-		return owner;
-	}
-
-	public void setOwner(Member owner) {
-		this.owner = owner;
-	}
 
 	public String getBreed() {
 		return breed;

@@ -20,6 +20,7 @@ public class DogRegistration {
     private Event<Dog> memberEventSrc;
 
     public void register(Dog dog) throws Exception {
+    	
         log.info("Registering " + dog.getName()+ " " + dog.getBreed());
         em.persist(dog);
         memberEventSrc.fire(dog);

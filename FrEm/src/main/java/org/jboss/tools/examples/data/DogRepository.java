@@ -17,6 +17,7 @@ public class DogRepository {
 
 	    public Dog findById(Long id) {
 	        return em.find(Dog.class, id);
+	        
 	    }
 	    	
 //  
@@ -28,7 +29,7 @@ public class DogRepository {
 	        // Swap criteria statements if you would like to try out type-safe criteria queries, a new
 	        // feature in JPA 2.0
 	        // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
-	        criteria.select(dog).orderBy(cb.asc(dog.get("sName")));
+	        criteria.select(dog).orderBy(cb.asc(dog.get("name")));
 	        return em.createQuery(criteria).getResultList();
 	    }
 }

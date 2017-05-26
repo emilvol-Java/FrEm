@@ -27,7 +27,7 @@ public class CourseRepository {
 	        // Swap criteria statements if you would like to try out type-safe criteria queries, a new
 	        // feature in JPA 2.0
 	        // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
-	        criteria.select(course).orderBy(cb.asc(course.get("cName")));
+	        criteria.select(course).orderBy(cb.asc(course.get("courseName")));
 	        return em.createQuery(criteria).getResultList();
 	    }
 }
