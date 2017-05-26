@@ -27,12 +27,12 @@ public class DogListProducer {
         return dogs;
     }
 
-    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Dog dog) {
-        retrieveAllMembersOrderedByName();
+    public void onDogListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Dog dog) {
+        retrieveAllDogsOrderedByName();
     }
 
     @PostConstruct
-    public void retrieveAllMembersOrderedByName() {
+    public void retrieveAllDogsOrderedByName() {
         dogs = dogRepository.findAllOrderedByName();
     }
 }

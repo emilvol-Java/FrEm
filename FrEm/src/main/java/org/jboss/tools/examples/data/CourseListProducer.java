@@ -25,7 +25,7 @@ public class CourseListProducer {
 	        return course;
 	    }
 
-	    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Course course) {
+	    public void onCourseListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Course course) {
 	    	retrieveAllCoursesOrderedByName();
 	    }
 
