@@ -21,6 +21,7 @@ public class Login implements Serializable {
 
 
 	private String pwd;
+	private String pwdchk;
 	private String msg;
 	private String user;
 
@@ -59,8 +60,18 @@ public class Login implements Serializable {
 		if (valid) {
 			
 			return "success"; 
-		} else {		
+//			HttpSession session =(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+//			session.setAttribute("username", user);
+//			return "admin";
+		} else {
+			
 			return "failure";
+//			FacesContext.getCurrentInstance().addMessage(
+//					null,
+//					new FacesMessage(FacesMessage.SEVERITY_WARN,
+//							"Incorrect Username and Passowrd",
+//							"Please enter correct username and Password"));
+//			return "login";
 		}
 	}
 

@@ -41,6 +41,14 @@
                 <h:outputLabel for="sname" value="Surname:" />
                 <h:inputText id="sname" value="#{newMember.sName}" />
                 <h:message for="name" errorClass="invalid" />
+                
+                <h:outputLabel for="pwd" value="Password:" />
+                <h:inputText id="pwd" value="#{newMember.passWord}" />
+                <h:message for="name" errorClass="invalid" />
+                
+                <h:outputLabel for="pwdcheck" value="Re-type password:" />
+                <h:inputText id="pwdcheck" value="#{newMember.passWordcheck}" />
+                <h:message for="name" errorClass="invalid" />
 
                 <h:outputLabel for="email" value="Email:" />
                 <h:inputText id="email" value="#{newMember.email}" />
