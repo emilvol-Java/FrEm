@@ -66,8 +66,24 @@ public class Member implements Serializable {
     @NotEmpty
     @Email
     private String email;
+	
+	 @NotNull
+	 @Size(min = 1, max = 25)
+	 private String passWord;
 
-    @NotNull
+    public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+
+	public void setStartDate(DefinedDate startDate) {
+		this.startDate = startDate;
+	}
+
+	@NotNull
     @Size(min = 10, max = 12)
     @Digits(fraction = 0, integer = 12)
     @Column(name = "phone_number")

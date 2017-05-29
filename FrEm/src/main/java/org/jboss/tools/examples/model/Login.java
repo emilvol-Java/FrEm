@@ -6,7 +6,11 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-//import javax.servlet.http.HttpSession;
+import javax.faces.component.html.*;
+import javax.inject.Inject;
+
+import org.jboss.tools.examples.controller.MemberController;
+import org.jboss.tools.examples.data.MemberRepository;
 
 
 
@@ -44,22 +48,21 @@ public class Login implements Serializable {
 		this.user = user;
 	}
 
+	@Inject 
+	MemberController memberControl;
+	
 	//validate login
-//	public String validateUsernamePassword() {
-//		boolean valid = true;//LoginDAO.validate(user, pwd);
-//		if (valid) {
-//			HttpSession session =(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-//			session.setAttribute("username", user);
-//			return "admin";
-//		} else {
-//			FacesContext.getCurrentInstance().addMessage(
-//					null,
-//					new FacesMessage(FacesMessage.SEVERITY_WARN,
-//							"Incorrect Username and Passowrd",
-//							"Please enter correct username and Password"));
-//			return "login";
-//		}
-//	}
+	public String validateUsernamePassword() {
+		
+		
+		boolean valid = memberControl.validate(user, pwd);
+		if (valid) {
+			
+			return "success"; 
+		} else {		
+			return "failure";
+		}
+	}
 
 	//logout event, invalidate session
 //	public String logout() {

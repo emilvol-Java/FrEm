@@ -24,6 +24,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.jboss.tools.examples.data.MemberRepository;
 import org.jboss.tools.examples.model.Member;
 import org.jboss.tools.examples.service.MemberRegistration;
 
@@ -47,6 +48,19 @@ public class MemberController {
     @PostConstruct
     public void initNewMember() {
         newMember = new Member();
+    }
+    
+    @Inject 
+    MemberRepository memRep;
+    
+    public boolean validate(String user, String pass){
+    	newMember = memRep.findByEmail(user);
+    	if (newMember!=null)
+    		if(newMember.getPassWord().equals(pass))
+    			return true;
+    		else
+    			return false;    	
+    	return false;
     }
 
     public void register() throws Exception {
