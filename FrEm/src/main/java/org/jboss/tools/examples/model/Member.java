@@ -71,6 +71,12 @@ public class Member implements Serializable {
 	 @Size(min = 1, max = 25)
 	 private String passWord;
 
+	 
+	 @NotNull
+	 @Size(min = 1, max = 25)
+	 private String passWordcheck;
+
+	 	 
     public String getPassWord() {
 		return passWord;
 	}
