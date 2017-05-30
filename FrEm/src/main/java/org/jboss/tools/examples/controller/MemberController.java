@@ -80,7 +80,7 @@ public class MemberController {
     
     
     public void register() throws Exception {
-    	
+    	if (validateRetypedPassword()){
     	   try {
 	            memberRegistration.register(newMember);
 	            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
@@ -91,7 +91,11 @@ public class MemberController {
 	            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
 	            facesContext.addMessage(null, m);
 	        }
-      		
+    	} else {
+    		String errorMessage = "Passwords must match each other";
+    		FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
+        	facesContext.addMessage(null, m);
+    	}	
     	
     }
 
