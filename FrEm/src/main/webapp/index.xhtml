@@ -43,11 +43,11 @@
                 <h:message for="name" errorClass="invalid" />
                 
                 <h:outputLabel for="pwd" value="Password:" />
-                <h:inputText id="pwd" value="#{newMember.passWord}" />
+                <h:inputSecret id="pwd" value="#{newMember.passWord}" />
                 <h:message for="name" errorClass="invalid" />
                 
                 <h:outputLabel for="pwdcheck" value="Re-type password:" />
-                <h:inputText id="pwdcheck" value="#{MemberController.pwdCheck}" />
+                <h:inputSecret id="pwdcheck" value="#{memberController.pwdCheck}" />
                 <h:message for="name" errorClass="invalid" />
 
                 <h:outputLabel for="email" value="Email:" />

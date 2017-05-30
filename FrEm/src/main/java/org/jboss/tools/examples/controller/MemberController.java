@@ -38,7 +38,16 @@ public class MemberController {
 	@Named
 	private String pwdCheck="";
 
-    @Inject
+    public String getPwdCheck() {
+		return pwdCheck;
+	}
+
+
+	public void setPwdCheck(String pwdCheck) {
+		this.pwdCheck = pwdCheck;
+	}
+
+	@Inject
     private FacesContext facesContext;
 
     @Inject
