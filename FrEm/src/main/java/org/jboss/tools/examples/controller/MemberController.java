@@ -34,6 +34,9 @@ import org.jboss.tools.examples.service.MemberRegistration;
 // http://www.cdi-spec.org/faq/#accordion6
 @Model
 public class MemberController {
+	
+	@Named
+	private String pwdCheck="";
 
     @Inject
     private FacesContext facesContext;
@@ -64,23 +67,14 @@ public class MemberController {
     }
     
    
-    public boolean validateRetypedPassword(){
-    	if (newMember!=null){
-    	String pass = newMember.getPassWord();
-       	String passRetype = newMember.getPassWordCheck();
-    	
-       	if (pass.equals(passRetype))
-    		return true;
-       	else return false;		
-    	}
-       	
-       	return false;
+    public boolean validateRetypedPassword(String pass, String passCheck){    		
+       	return pass.equals(passCheck);
     }
     
     
     
     public void register() throws Exception {
-    	if (validateRetypedPassword()){
+    	if (validateRetypedPassword(newMember.getPassWord(), this.pwdCheck)){
     	   try {
 	            memberRegistration.register(newMember);
 	            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
