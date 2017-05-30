@@ -54,22 +54,39 @@ public class Member implements Serializable {
     @NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[^0-9]*", message = "Given name must not contain numbers")
+    @Column(name="fName")
     private String fName;
 
     @NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[^0-9]*", message = "Surname must not contain numbers")
+    @Column(name="sName")
     private String sName;
 
 
 	@NotNull
     @NotEmpty
     @Email
+    @Column(name="email")
     private String email;
 	
 	 @NotNull
 	 @Size(min = 1, max = 25)
+	 @Column(name="password")
 	 private String passWord;
+	 
+
+		@NotNull
+	    @Size(min = 10, max = 12)
+	    @Digits(fraction = 0, integer = 12)
+	    @Column(name = "phone_number")
+	    private String phoneNumber;
+	 
+	    
+	    @Inject
+	    @Column(name="startDate")
+	    private DefinedDate startDate;
+	 
 
 			 	 
     public String getPassWord() {
@@ -84,15 +101,8 @@ public class Member implements Serializable {
 		this.startDate = startDate;
 	}
 
-	@NotNull
-    @Size(min = 10, max = 12)
-    @Digits(fraction = 0, integer = 12)
-    @Column(name = "phone_number")
-    private String phoneNumber;
     
-    
-    @Inject
-    private DefinedDate startDate;
+
     
     public Member(){
     }

@@ -9,7 +9,7 @@
 	<h:form>
 		<h3>Please login</h3>
 		<h:outputText value="Username" />
-		<h:inputText id="username" value="#{login.user}"></h:inputText>
+		<h:inputText id="username" value="#{login.useremail}"></h:inputText>
 		<h:message for="username"></h:message>
 		<br></br><br></br>
 		
@@ -18,7 +18,7 @@
 		<h:message for="password"></h:message>
 		<br></br><br></br>
 		
-		<h:commandButton type="submit" action="#{login.validateUsernamePassword}"
+		<h:commandButton type="submit" action="#{login.validateUsernamePassword()}"
 			value="Login"></h:commandButton>
 	</h:form>
 </h:body>

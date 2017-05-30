@@ -2,13 +2,18 @@ package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
 
+import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.component.html.*;
 import javax.inject.Inject;
+import javax.inject.Named;
+import javax.servlet.http.HttpSession;
+import javax.validation.constraints.Pattern;
 
+import org.hibernate.validator.constraints.Email;
 import org.jboss.tools.examples.controller.MemberController;
 import org.jboss.tools.examples.data.MemberRepository;
 
@@ -20,11 +25,9 @@ import org.jboss.tools.examples.data.MemberRepository;
 public class Login implements Serializable {
 
 
+	@Named
 	private String pwd;
-	private String pwdchk;
-	private String msg;
-	private String user;
-
+	
 	public String getPwd() {
 		return pwd;
 	}
@@ -33,21 +36,19 @@ public class Login implements Serializable {
 		this.pwd = pwd;
 	}
 
-	public String getMsg() {
-		return msg;
+	public String getUseremail() {
+		return useremail;
 	}
 
-	public void setMsg(String msg) {
-		this.msg = msg;
+	public void setUseremail(String useremail) {
+		this.useremail = useremail;
 	}
 
-	public String getUser() {
-		return user;
-	}
+	@Named
+	@Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[A-Z0-9.-]+\\.[a-zA-Z]{2,6}$", message = "Email must be a valid email")
+	private String useremail;
+	
 
-	public void setUser(String user) {
-		this.user = user;
-	}
 
 	@Inject 
 	MemberController memberControl;
@@ -56,29 +57,22 @@ public class Login implements Serializable {
 	public String validateUsernamePassword() {
 		
 		
-		boolean valid = memberControl.validate(user, pwd);
+		boolean valid = memberControl.validate(useremail, pwd);
 		if (valid) {
 			
-			return "success"; 
-//			HttpSession session =(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-//			session.setAttribute("username", user);
-//			return "admin";
-		} else {
+			HttpSession session =(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+			session.setAttribute("username", useremail);
 			
+			return "success"; 
+				
+		} else {
+			FacesContext.getCurrentInstance().addMessage(
+			null,
+			new FacesMessage(FacesMessage.SEVERITY_WARN,
+					"Incorrect Username and Passowrd",
+					"Please enter correct username and Password"));
 			return "failure";
-//			FacesContext.getCurrentInstance().addMessage(
-//					null,
-//					new FacesMessage(FacesMessage.SEVERITY_WARN,
-//							"Incorrect Username and Passowrd",
-//							"Please enter correct username and Password"));
-//			return "login";
 		}
 	}
-
-	//logout event, invalidate session
-//	public String logout() {
-//		HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-//		session.invalidate();
-//		return "login";
-//	}
+	
 }
