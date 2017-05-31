@@ -2,22 +2,14 @@ package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
 
-import javax.enterprise.inject.Produces;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.component.html.*;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
-import javax.validation.constraints.Pattern;
-
 import org.hibernate.validator.constraints.Email;
 import org.jboss.tools.examples.controller.MemberController;
-import org.jboss.tools.examples.data.MemberRepository;
-
-import utils.SessionUtils;
+import org.jboss.tools.examples.util.SessionUtils;
 
 
 

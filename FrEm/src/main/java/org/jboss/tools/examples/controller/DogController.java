@@ -9,9 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.jboss.tools.examples.model.Dog;
-import org.jboss.tools.examples.model.Member;
 import org.jboss.tools.examples.service.DogRegistration;
-import org.jboss.tools.examples.service.MemberRegistration;
 
 @Model
 public class DogController {

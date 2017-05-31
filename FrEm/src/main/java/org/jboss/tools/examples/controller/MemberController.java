@@ -25,6 +25,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.jboss.tools.examples.data.MemberRepository;
+import org.jboss.tools.examples.model.DefinedDate;
 import org.jboss.tools.examples.model.Member;
 import org.jboss.tools.examples.service.MemberRegistration;
 
@@ -60,6 +61,7 @@ public class MemberController {
     @PostConstruct
     public void initNewMember() {
         newMember = new Member();
+        
     }
     
     @Inject 
@@ -84,6 +86,7 @@ public class MemberController {
     
     public void register() throws Exception {
     	if (validateRetypedPassword(newMember.getPassWord(), this.pwdCheck)){
+    		newMember.setStartDate(new DefinedDate());
     	   try {
 	            memberRegistration.register(newMember);
 	            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");

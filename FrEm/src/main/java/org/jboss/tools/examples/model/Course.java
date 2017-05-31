@@ -1,10 +1,6 @@
 package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
-import java.util.Date;
-
-import javax.annotation.Resource;
-import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,8 +8,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import javax.ws.rs.GET;
-import javax.xml.bind.annotation.XmlRootElement;
 
 
 @SuppressWarnings("serial")

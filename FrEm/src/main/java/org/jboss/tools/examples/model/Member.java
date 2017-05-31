@@ -18,13 +18,11 @@ package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
@@ -82,10 +80,9 @@ public class Member implements Serializable {
 	    @Column(name = "phone_number")
 	    private String phoneNumber;
 	 
-	    
-	    @Inject
+	    @NotNull
 	    @Column(name="startDate")
-	    private DefinedDate startDate;
+	    private String startDate;
 	 
 
 			 	 
@@ -98,7 +95,7 @@ public class Member implements Serializable {
 	}
 
 	public void setStartDate(DefinedDate startDate) {
-		this.startDate = startDate;
+		this.startDate = startDate.getDate();
 	}
 
     

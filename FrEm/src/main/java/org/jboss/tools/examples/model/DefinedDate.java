@@ -3,11 +3,6 @@ package org.jboss.tools.examples.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
-import javax.annotation.Resource;
-import javax.enterprise.inject.Model;
-import javax.enterprise.inject.Produces;
 import javax.inject.Named;
 import javax.xml.bind.annotation.XmlRootElement;
 

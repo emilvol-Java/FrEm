@@ -3,12 +3,8 @@ package org.jboss.tools.examples.model;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
-import javax.inject.Inject;
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
