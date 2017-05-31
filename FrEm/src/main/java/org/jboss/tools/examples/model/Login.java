@@ -17,6 +17,9 @@ import org.hibernate.validator.constraints.Email;
 import org.jboss.tools.examples.controller.MemberController;
 import org.jboss.tools.examples.data.MemberRepository;
 
+import utils.SessionUtils;
+
+
 
 
 
@@ -25,8 +28,15 @@ import org.jboss.tools.examples.data.MemberRepository;
 public class Login implements Serializable {
 
 
+	private static final long serialVersionUID = 6075044697570830467L;
+
 	@Named
 	private String pwd;
+	
+	@Named
+	@Email
+	private String useremail;
+	
 	
 	public String getPwd() {
 		return pwd;
@@ -44,11 +54,8 @@ public class Login implements Serializable {
 		this.useremail = useremail;
 	}
 
-	@Named
-	@Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[A-Z0-9.-]+\\.[a-zA-Z]{2,6}$", message = "Email must be a valid email")
-	private String useremail;
 	
-
+	
 
 	@Inject 
 	MemberController memberControl;
@@ -60,17 +67,18 @@ public class Login implements Serializable {
 		boolean valid = memberControl.validate(useremail, pwd);
 		if (valid) {
 			
-			HttpSession session =(HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
+			HttpSession session = SessionUtils.getSession();
 			session.setAttribute("username", useremail);
 			
 			return "success"; 
 				
 		} else {
-			FacesContext.getCurrentInstance().addMessage(
-			null,
-			new FacesMessage(FacesMessage.SEVERITY_WARN,
-					"Incorrect Username and Passowrd",
-					"Please enter correct username and Password"));
+//			FacesContext.getCurrentInstance().addMessage(
+//			null,
+//			new FacesMessage(FacesMessage.SEVERITY_WARN,
+//					"Incorrect Username and Passowrd",
+//					"Please enter correct username and Password"));
+			
 			return "failure";
 		}
 	}
