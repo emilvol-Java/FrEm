@@ -22,12 +22,12 @@
 		<h:message for="born"></h:message>
 		
 		<h:outputText value="Vaccinated" />
-		<h:selectBooleanCheckbox id="vaccinated" value="#{newDog.vaccinated}" ></h:selectBooleanCheckbox>>
+		<h:selectBooleanCheckbox id="vaccinated" value="#{newDog.vaccinated}" ></h:selectBooleanCheckbox>
 		<h:message for="vaccinated"></h:message>
 		
 		<br></br><br></br>
 		
-		<h:commandButton type="submit" action="#{DogController.register}"
+		<h:commandButton type="submit" action="#{dogController.register}"
 			value="Register Dog"></h:commandButton>
 	</h:form>
 </h:body>
