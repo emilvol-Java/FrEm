@@ -87,7 +87,6 @@ public class MemberController {
     public void register() throws Exception {
     	if (validateRetypedPassword(newMember.getPassWord(), this.pwdCheck)){
     		newMember.setStartDate(new DefinedDate());
-    		System.out.println("######### memberID ######## :"+newMember.getId());
     	   try {
 	            memberRegistration.register(newMember);
 	            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
