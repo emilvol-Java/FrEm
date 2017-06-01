@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -17,7 +18,7 @@ public class Dog implements Serializable {
 
 	
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
 
@@ -36,7 +37,7 @@ public class Dog implements Serializable {
     @NotNull
     @Size(min = 2, max = 4)
     @Pattern(regexp = "[0-9]*", message = "Given field is the year the dog was born, has to be numbers")
-    private int born;
+    private String born;
     
     @NotNull
     private boolean vaccinated;
@@ -58,11 +59,11 @@ public class Dog implements Serializable {
 		this.dogname = name;
 	}
 
-	public int getBorn() {
+	public String getBorn() {
 		return born;
 	}
 
-	public void setBorn(int born) {
+	public void setBorn(String born) {
 		this.born = born;
 	}
 

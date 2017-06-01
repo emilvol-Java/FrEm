@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Course implements Serializable {
  
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
     
