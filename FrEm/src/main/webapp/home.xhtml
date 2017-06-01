@@ -13,7 +13,20 @@
 		
 		<h:commandButton id="logout" action="#{login.logout}"
             value="Logout" styleClass="Logout"></h:commandButton>
-		
+            <br></br>><br></br>>
+            
+            
+            <p>
+                <h:panelGrid columns="2">
+                    <h:commandButton id="register"
+                        action="#{dogController.register}"
+                        value="Register" styleClass="register" />
+                    <h:messages styleClass="messages"
+                        errorClass="invalid" infoClass="valid"
+                        warnClass="warning" globalOnly="true" />
+                </h:panelGrid>
+            </p>
+        		
 			
 	</h:form>
 </h:body>
