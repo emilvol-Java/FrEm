@@ -1,23 +1,24 @@
 package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
-import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 @SuppressWarnings("serial")
 @Entity
-//@XmlRootElement
+@XmlRootElement
 public class Course implements Serializable {
  
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     
     
@@ -32,21 +33,25 @@ public class Course implements Serializable {
     @Pattern(regexp = "[0-9]*", message = "Given course price has to be numbers")
     private int coursePrice;	
     
-    @Inject
-    private DefinedDate startDate;
+    @NotNull
+    @Column(name="STARTDATE")
+    private String startDate;
     
-    @Inject
-    private DefinedDate endDate;
+    @NotNull
+    @Column(name="ENDDATE")
+    private String endDate;
     
 
 	@NotNull
     @Size(min = 1, max = 200)
     @Pattern(regexp = "^[a-zA-Z0-9_]*", message = "Given description can only contain alphanumeric charachters, (a-zA-Z0-9_)")
+	@Column(name="COURSEDESRCIPTION")
     private String courseDescr;
 
     
     @NotNull
     @Size(min = 1, max = 4)
+    @Column(name="MAXPARTICIPANTS")
     private int numParticipants;
     
     
@@ -57,7 +62,8 @@ public class Course implements Serializable {
 	}
 
 	public void setStartDate(String start) {
-		startDate.setDate(start);;
+		DefinedDate def = new DefinedDate(start);
+		startDate = def.getDate();
 	}
 	
 	public String getEndDate() {
@@ -65,7 +71,8 @@ public class Course implements Serializable {
 	}
 
 	public void setEndDate(String start) {
-		endDate.setDate(start);;
+		DefinedDate def = new DefinedDate(start);
+		endDate = def.getDate();
 	}
 
     

@@ -16,6 +16,10 @@ public class DefinedDate implements Serializable{
 	public DefinedDate(){
 		setPresentDate();
 	}
+	public DefinedDate(String date){
+		setDate(date);
+	}
+	
 	public String getDate() {
 		return date;
 	}
