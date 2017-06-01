@@ -46,23 +46,16 @@ public class Login implements Serializable {
 		this.useremail = useremail;
 	}
 
-	
-	
+
 
 	@Inject 
 	MemberController memberControl;
 	
 	//validate login
-	public String validateUsernamePassword() {
-		
-		
+	public String validateUsernamePassword() {		
 		boolean valid = memberControl.validate(useremail, pwd);
-		if (valid) {
-			
-	
-			
+		if (valid) {		
 			return "success"; 
-				
 		} else {
 //			FacesContext.getCurrentInstance().addMessage(
 //			null,
@@ -75,8 +68,7 @@ public class Login implements Serializable {
 	}
 	
 	//logout event, invalidate session
-		public String logout() {
-			
+		public String logout() {		
 			return "logout";
 		}
 	
