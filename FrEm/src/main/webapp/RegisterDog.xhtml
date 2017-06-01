@@ -7,26 +7,30 @@
 </h:head>
 <h:body>
 	<h:form>
+		
+		
 		<h3>Register your ugly dog!</h3>
-		<h:outputText value="Dogname" />
-		<h:inputText id="dogname" value="#{newDog.name}"></h:inputText>
-		<h:message for="dogname"></h:message>
-		<br></br><br></br>
+		<h:panelGrid columns="3" columnClasses="titleCell">
+			<h:outputText value="Dogname" />
+			<h:inputText id="dogname" value="#{newDog.name}"></h:inputText>
+			<h:message for="dogname"></h:message>
+			
+			
+			<h:outputText value="Breed" />
+			<h:inputText id="breed" value="#{newDog.breed}"></h:inputText>
+			<h:message for="breed"></h:message>
 		
-		<h:outputText value="Breed" />
-		<h:inputText id="breed" value="#{newDog.breed}"></h:inputText>
-		<h:message for="breed"></h:message>
-		<br></br>
-		
-		<h:outputText value="Born" />
-		<h:inputText id="born" value="#{newDog.born}"></h:inputText>
-		<h:message for="born"></h:message>
-		<br></br>
-		
-		<h:outputText value="Vaccinated" />
-		<h:selectBooleanCheckbox id="vaccinated" value="#{newDog.vaccinated}" ></h:selectBooleanCheckbox>
-		<h:message for="vaccinated"></h:message>	
-		<br></br><br></br>
+			
+			<h:outputText value="Born" />
+			<h:inputText id="born" value="#{newDog.born}"></h:inputText>
+			<h:message for="born"></h:message>
+			
+			
+			<h:outputText value="Vaccinated" />
+			<h:selectBooleanCheckbox id="vaccinated" value="#{newDog.vaccinated}" ></h:selectBooleanCheckbox>
+			<h:message for="vaccinated"></h:message>	
+			
+		 </h:panelGrid>	
 		
 		<h:commandButton type="submit" action="#{dogController.register}"
 			value="Register Dog"></h:commandButton>
