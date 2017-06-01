@@ -30,7 +30,7 @@ public class Dog implements Serializable {
     @NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[^0-9]*", message = "Given name must not contain numbers")
-    private String name;
+    private String dogname;
     
     
     @NotNull
@@ -51,11 +51,11 @@ public class Dog implements Serializable {
 	}
 
 	public String getName() {
-		return name;
+		return dogname;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.dogname = name;
 	}
 
 	public int getBorn() {

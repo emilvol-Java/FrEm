@@ -2,6 +2,7 @@ package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
 import javax.inject.Inject;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -22,7 +23,7 @@ public class Course implements Serializable {
     
     @NotNull
     @Size(min = 1, max = 25)
-    @Pattern(regexp = "[^0-9]*", message = "Given coursename must not contain numbers")
+    @Column(name="COURSENAME")
     private String courseName;
 
     
@@ -36,6 +37,20 @@ public class Course implements Serializable {
     
     @Inject
     private DefinedDate endDate;
+    
+
+	@NotNull
+    @Size(min = 1, max = 200)
+    @Pattern(regexp = "^[a-zA-Z0-9_]*", message = "Given description can only contain alphanumeric charachters, (a-zA-Z0-9_)")
+    private String courseDescr;
+
+    
+    @NotNull
+    @Size(min = 1, max = 4)
+    private int numParticipants;
+    
+    
+    
 
 	public String getStartDate() {
 		return startDate.toString();
@@ -53,21 +68,6 @@ public class Course implements Serializable {
 		endDate.setDate(start);;
 	}
 
-
-	@NotNull
-    @Size(min = 1, max = 200)
-    @Pattern(regexp = "^[a-zA-Z0-9_]*", message = "Given description can only contain alphanumeric charachters, (a-zA-Z0-9_)")
-    private String courseDescr;
-
-    
-    @NotNull
-    @Size(min = 1, max = 4)
-    @Pattern(regexp = "[0-9]*", message = "Number of participants at the course, must be a number.")
-    private int numParticipants;
-
-
-	
-    
     
     public Long getId() {
 		return id;
