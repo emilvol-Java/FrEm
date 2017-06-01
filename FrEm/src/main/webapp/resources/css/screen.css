@@ -55,6 +55,16 @@ body {
 #aside ul {
   padding-left: 10px;
 }
+
+#header_home {
+	position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+   
+}
+
 .dualbrand {
   float: right;
   padding-right: 10px;
@@ -113,6 +123,13 @@ label {
   font-weight: bold;
   color:#363636;
 }
+
+img { 
+    width: 100%;
+    height: auto;
+    opacity: 1.0;
+}
+
 input {
   margin-bottom: 8px;
 }
