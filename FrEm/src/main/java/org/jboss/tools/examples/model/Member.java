@@ -46,9 +46,6 @@ public class Member implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     
-//    @Inject
-//    @OneToOne
-//    private ContactInfo details;
     
     @NotNull
     @Size(min = 1, max = 25)
