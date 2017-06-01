@@ -59,9 +59,7 @@ public class Login implements Serializable {
 		boolean valid = memberControl.validate(useremail, pwd);
 		if (valid) {
 			
-			HttpSession session = SessionUtils.getSession();
-			session.setAttribute("username", useremail);
-//			session.setAttribute("userid", fixa ut userid:t här på nåt sätt...     );
+	
 			
 			return "success"; 
 				
@@ -78,8 +76,7 @@ public class Login implements Serializable {
 	
 	//logout event, invalidate session
 		public String logout() {
-			HttpSession session = SessionUtils.getSession();
-			session.invalidate();
+			
 			return "logout";
 		}
 	

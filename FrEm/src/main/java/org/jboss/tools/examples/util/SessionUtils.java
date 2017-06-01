@@ -1,9 +1,12 @@
 package org.jboss.tools.examples.util;
 
+import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+
+@Model
 public class SessionUtils {
 
 	public static HttpSession getSession() {
