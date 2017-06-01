@@ -86,6 +86,7 @@ public class MemberController {
     
     public void register() throws Exception {
     	if (validateRetypedPassword(newMember.getPassWord(), this.pwdCheck)){
+    		
     		newMember.setStartDate(new DefinedDate());
     	   try {
 	            memberRegistration.register(newMember);
