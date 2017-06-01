@@ -17,5 +17,7 @@
 
 -- You can use this file to load seed data into the database using SQL statements
 --insert into Member (id, fName, sName,  password, email, phone_number, startDate) values (0, 'John", "Smith','passwordet', 'john.smith@mailinator.com', '2125551212', "2017-01-01") 
-insert into Member (id, fName,sName, PASSWORD, email, phone_number, STARTDATE) values (0, 'John', ' Smith', 'pw', 'john.smith@mailinator.com', '2125551212','1899-02-22') 
+insert into Member (id, fName,sName, PASSWORD, email, phone_number, STARTDATE) values (0, 'Darth', ' Vader', 'pw', 'darth@deathstar.com', '2125551212','1899-02-22');
+insert into Member (id, fName,sName, PASSWORD, email, phone_number, STARTDATE) values (1, 'Emil', ' Voltaire', 'pw', 'emil@lexicon.com', '111222','1799-02-22'); 
+insert into Member (id, fName,sName, PASSWORD, email, phone_number, STARTDATE) values (2, 'Fredrik', ' Hansen', 'pw', 'fredrik@jedi.com', '323232','1399-02-22'); 
 
