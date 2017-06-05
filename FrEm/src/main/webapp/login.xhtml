@@ -1,29 +1,48 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:b="http://bootsfaces.net/ui"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<title>login</title>
-</h:head>
+		<h:outputStylesheet library = "css" name = "login.css" /> 
+        <title>Login</title>
+       
+    </h:head>
+    
+  
 <h:body>
-	<h:form>
-		<h3>Please login</h3>
-		<h:outputText value="Username" />
-		<h:inputText id="username" value="#{login.useremail}"></h:inputText>
-		<h:message for="username"></h:message>
-		<br></br><br></br>
-		
-		<h:outputText value="Password" />
-		<h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
-		<h:message for="password"></h:message>
-		<br></br><br></br>
-		
-		<h:commandButton type="submit" action="#{login.validateUsernamePassword()}"
-			value="Login"></h:commandButton>
-	</h:form>
+	<b:container>
+		 <h:form styleClass="form-signin" prependId="false">
+		 	<h2 class="form-signin-heading">Please login</h2>
+			<b:inputText id="username" placeholder="#{login.useremail}" >
+                    <f:facet name="prepend">
+                        <b:icon name="user" />
+                    </f:facet>
+            </b:inputText>
+			<b:inputText id="password" placeholder="#{login.pwd}" type="password">
+                    <f:facet name="prepend">
+                        <b:iconAwesome name="key" />
+                    </f:facet>
+            </b:inputText>
+			
+			<b:commandButton look="primary btn-block" value="Sign In" icon="log-in" size="lg" action="#{login.validateUsernamePassword()}"/>
+			
+			<!-- <h:outputText value="Username" />
+			<h:inputText id="username" value="#{login.useremail}"></h:inputText>
+			<h:message for="username"></h:message>
+			<br></br><br></br>
+			
+			<h:outputText value="Password" />
+			<h:inputSecret id="password" value="#{login.pwd}"></h:inputSecret>
+			<h:message for="password"></h:message>
+			<br></br><br></br>
+			
+			<h:commandButton type="submit" action="#{login.validateUsernamePassword()}"
+				value="Login"></h:commandButton> --> 
+		</h:form>
+	</b:container>
 </h:body>
 </html>
