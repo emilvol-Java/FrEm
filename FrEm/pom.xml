@@ -88,6 +88,16 @@
     </dependencyManagement>
 
     <dependencies>
+    
+       	
+		<dependency>
+		    <groupId>net.bootsfaces</groupId>
+		    <artifactId>bootsfaces</artifactId>
+		    <version>1.1.1</version>
+		    <scope>compile</scope>
+		</dependency>
+                         
+       	
 
         <!-- First declare the APIs we depend on and need for compilation. All 
             of them are provided by JBoss WildFly -->
