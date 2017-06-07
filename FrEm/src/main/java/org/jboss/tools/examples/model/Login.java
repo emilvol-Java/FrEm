@@ -23,11 +23,11 @@ public class Login implements Serializable {
 	private static final long serialVersionUID = 6075044697570830467L;
 
 	@Named
-	private String pwd;
+	private String pwd="";
 	
 	@Named
 	@Email
-	private String useremail;
+	private String useremail="";
 	
 	
 	public String getPwd() {
@@ -41,6 +41,8 @@ public class Login implements Serializable {
 	public String getUseremail() {
 		return useremail;
 	}
+	
+
 
 	public void setUseremail(String useremail) {
 		this.useremail = useremail;

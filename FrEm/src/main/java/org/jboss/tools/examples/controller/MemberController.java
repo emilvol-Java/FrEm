@@ -68,12 +68,17 @@ public class MemberController {
     MemberRepository memRep;
     
     public boolean validate(String user, String pass){
-    	newMember = memRep.findByEmail(user);
-    	if (newMember.getEmail()!=null)
-    		if(newMember.getPassWord().equals(pass))
+    	try{
+    		newMember = memRep.findByEmail(user);
+    	}catch(Exception e){System.out.println("No members found  "+e);}
+    	if (newMember.getEmail()!=null){
+    		System.out.println("NewMember found "+newMember.getEmail());
+    		if(newMember.getPassWord().equals(pass)){
     			return true;
+    		}
     		else
-    			return false;    	
+    			return false;    
+    	}
     	return false;
     }
     
