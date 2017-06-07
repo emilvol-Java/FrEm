@@ -14,22 +14,22 @@
     
   
 <h:body>
-	<!-- <b:container>-
-	<b:container></b:container> -->
+	<!-- <b:container>-->
+	<b:container>
 		 <h:form styleClass="form-signin" prependId="false">
 		 	<h2 class="form-signin-heading">Please login</h2>
-			<h:inputText id="username" placeholder= "#{login.getUseremail()}">
+			<b:inputText id="username" placeholder= "#{login.getUseremail()}">
                     <f:facet name="prepend">
                         <b:icon name="user" />
                     </f:facet>
-            </h:inputText>
-			<h:inputText id="password" placeholder="#{login.getPwd()}" type="password">
+            </b:inputText>
+			<b:inputText id="password" placeholder="#{login.getPwd()}" type="password">
                     <f:facet name="prepend">
                         <b:iconAwesome name="key" />
                     </f:facet>
-            </h:inputText>
+            </b:inputText>
 			
-			<h:commandButton look="primary btn-block" value="Login" icon="log-in" size="lg" action="#{login.validateUsernamePassword()}"/>
+			<b:commandButton look="primary btn-block" value="Login" icon="log-in" size="lg" action="#{login.validateUsernamePassword()}"/>
 			
 			<!-- <h:outputText value="Username" />
 			<h:inputText id="username" value="#{login.useremail}"></h:inputText>
@@ -44,6 +44,6 @@
 			<h:commandButton type="submit" action="#{login.validateUsernamePassword()}"
 				value="Login"></h:commandButton> --> 
 		</h:form>
-	<!--  </b:container>-->
+	</b:container>
 </h:body>
 </html>
