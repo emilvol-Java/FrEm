@@ -69,7 +69,7 @@ public class MemberController {
     
     public boolean validate(String user, String pass){
     	newMember = memRep.findByEmail(user);
-    	if (newMember!=null)
+    	if (newMember.getEmail()!=null)
     		if(newMember.getPassWord().equals(pass))
     			return true;
     		else

@@ -23,9 +23,7 @@
         http://xmlns.jcp.org/xml/ns/javaee
         http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
         
-        
-        
-    
+
    
     <navigation-rule>
 		<description>
@@ -78,5 +76,5 @@
 				
 		
 	</navigation-rule>
-        
+ 
 </faces-config>

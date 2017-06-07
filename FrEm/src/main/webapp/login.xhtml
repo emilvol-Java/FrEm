@@ -7,28 +7,29 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-		<h:outputStylesheet library = "css" name = "login.css" /> 
+		<!-- <h:outputStylesheet library = "css" name = "login.css" />  -->
         <title>Login</title>
        
     </h:head>
     
   
 <h:body>
-	<b:container>
+	<!-- <b:container>-
+	<b:container></b:container> -->
 		 <h:form styleClass="form-signin" prependId="false">
 		 	<h2 class="form-signin-heading">Please login</h2>
-			<b:inputText id="username" placeholder="#{login.useremail}" >
+			<h:inputText id="username" placeholder="USERNAME" value= "#{login.useremail}">
                     <f:facet name="prepend">
                         <b:icon name="user" />
                     </f:facet>
-            </b:inputText>
-			<b:inputText id="password" placeholder="#{login.pwd}" type="password">
+            </h:inputText>
+			<h:inputText id="password" placeholder="PASSWORD" value ="#{login.pwd}" type="password">
                     <f:facet name="prepend">
                         <b:iconAwesome name="key" />
                     </f:facet>
-            </b:inputText>
+            </h:inputText>
 			
-			<b:commandButton look="primary btn-block" value="Sign In" icon="log-in" size="lg" action="#{login.validateUsernamePassword()}"/>
+			<h:commandButton look="primary btn-block" value="Login" icon="log-in" size="lg" action="#{login.validateUsernamePassword()}"/>
 			
 			<!-- <h:outputText value="Username" />
 			<h:inputText id="username" value="#{login.useremail}"></h:inputText>
@@ -43,6 +44,6 @@
 			<h:commandButton type="submit" action="#{login.validateUsernamePassword()}"
 				value="Login"></h:commandButton> --> 
 		</h:form>
-	</b:container>
+	<!--  </b:container>-->
 </h:body>
 </html>

@@ -52,7 +52,8 @@ public class Login implements Serializable {
 	MemberController memberControl;
 	
 	//validate login
-	public String validateUsernamePassword() {		
+	public String validateUsernamePassword() {
+		System.out.println("[validateUsernamePassword] : userEmail :"+useremail+" PWD: "+pwd);
 		boolean valid = memberControl.validate(useremail, pwd);
 		if (valid) {		
 			return "success"; 
