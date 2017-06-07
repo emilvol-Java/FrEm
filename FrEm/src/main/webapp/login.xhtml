@@ -7,17 +7,15 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-		<!-- <h:outputStylesheet library = "css" name = "login.css" />  "USERNAME" value= "PASSWORD" value =-->
-        <title>Login</title>
-       
-    </h:head>
-    
-  
+	<title>Login</title>
+    <h:outputStylesheet library = "css" name = "login.css" />
+</h:head>
+      
 <h:body>
 	<b:container>
 		 <h:form styleClass="form-signin" prependId="false">
+		 	
 		 	<h2 class="form-signin-heading">Please login!</h2>
-			
 			<b:inputText id="username" placeholder= "Username" value="#{login.useremail}">
                     <f:facet name="prepend">
                         <b:icon name="user" />
@@ -29,11 +27,8 @@
                         <b:iconAwesome name="key" />
                     </f:facet>
             </b:inputText>
-            
+            <b:commandButton look="primary btn-block" value="Login" icon="log-in" size="lg" action="#{login.validateUsernamePassword()}"/>
 			
-			<b:commandButton look="primary btn-block" value="Login" icon="log-in" size="lg" action="#{login.validateUsernamePassword()}"/>
-			
-			     
 		</h:form>
 	</b:container>
 </h:body>
