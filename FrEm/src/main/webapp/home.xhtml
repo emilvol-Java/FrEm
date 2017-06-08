@@ -7,22 +7,16 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
       
 <h:head>
+
 	<h:outputStylesheet library = "css" name = "login.css" /> 
 	<title>Home</title>
 
 </h:head>
 <h:body>
+	   
 	
-	<b:navBar brand="Dogs Angels" brandHref="#" fixed="top" inverse="true">
-            <b:navbarLinks>
-                <b:navLink value="Home" href="#"></b:navLink>
-                <b:navLink value="Register" href="/RegisterDog.xhtml"></b:navLink>
-                <b:navLink value="Courses" href="#courses"></b:navLink>
-                <b:navLink value="Contact" href="#contact"></b:navLink>
-            </b:navbarLinks>
-    </b:navBar>
-			
 	<b:container>
+	<div id="navbarLoggedin"><ui:insert name="navbarLoggedin">Default content</ui:insert></div>
 			<div id="header_home">
 	             <img src="resources/gfx/banner-dog.jpg" />
 				 <h3>Welcome #{newMember.fName}!</h3>         	
