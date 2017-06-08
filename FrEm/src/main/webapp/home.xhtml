@@ -31,13 +31,13 @@
 				<h:form styleClass="form-signin" prependId="false">
 									
 					<b:commandButton look="primary btn-block" value="Register" icon="log-in" size="lg" action="/RegisterDog.xhtml"/>
-				
+					<h:commandButton id="logout" action="#{login.logout}"
+	            		value="Logout" styleClass="Logout">
+	        		</h:commandButton>
+	        	
 				</h:form>
 			   	
-	     	<h:commandButton id="logout" action="#{login.logout}"
-	            value="Logout" styleClass="Logout">
-	        </h:commandButton>
-	        <br></br>><br></br>>
+	     	
     </b:container>		
 			
 	
