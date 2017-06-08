@@ -45,7 +45,8 @@
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:f="http://xmlns.jcp.org/jsf/core"
     xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:b="http://bootsfaces.net/ui">
 
     <ui:define name="title">
         Home
@@ -54,5 +55,33 @@
     <ui:define name="dogcontent">
    		 <h2>-</h2>
          <h3 style="color:blue; font-family:Arial Black;"> Welcome #{newMember.fName} #{newMember.sName}!</h3> 
+         <b:formGroup>
+         	<b:form>
+         	
+         	</b:form>
+         </b:formGroup>
+         
+    </ui:define>
+    
+    <ui:define name="registerdogcontent">
+   		 <h2>-</h2>
+         <h3 style="color:blue; font-family:Arial Black;"> Welcome register your dog, #{newMember.startDate} !</h3> 
+         <b:formGroup>
+         	<b:form>
+         	
+         	</b:form>
+         </b:formGroup>
+         
+    </ui:define>
+    
+    <ui:define name="coursescontent">
+   		 <h2>-</h2>
+         <h3 style="color:blue; font-family:Arial Black;"> Register to your courser !</h3> 
+         <b:formGroup>
+         	<b:form>
+         	
+         	</b:form>
+         </b:formGroup>
+         
     </ui:define>
 </ui:composition>
