@@ -7,13 +7,29 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
       
 <h:head>
+	<h:outputStylesheet library = "css" name = "login.css" /> 
 	<title>Register a dog</title>
+
 </h:head>
 <h:body>
-	<h:form>
-		
-		
-		<h3>Register your ugly dog!</h3>
+	
+	<b:navBar brand="Dogs Angels" brandHref="#" fixed="top" inverse="true">
+            <b:navbarLinks>
+                <b:navLink value="Home" href="#"></b:navLink>
+                <b:navLink value="Register" href="/RegisterDog.xhtml"></b:navLink>
+                <b:navLink value="Courses" href="#courses"></b:navLink>
+                <b:navLink value="Contact" href="#contact"></b:navLink>
+            </b:navbarLinks>
+    </b:navBar>
+	
+	<b:container>
+			<div id="header_home">
+	             <img src="resources/gfx/banner-dog.jpg" />
+				 <h3>Welcome #{newMember.fName}! Register your ugly dog.</h3>         	
+	        </div>
+			
+			<h:form>
+				
 		<h:panelGrid columns="3" columnClasses="titleCell">
 			<h:outputText value="Dogname" />
 			<h:inputText id="dogname" value="#{newDog.name}"></h:inputText>
@@ -38,6 +54,19 @@
 		
 		<h:commandButton type="submit" action="#{dogController.register}"
 			value="Register Dog"></h:commandButton>
+			
+		
 	</h:form>
+				
+			   	
+	     	<h:commandButton id="logout" action="#{login.logout}"
+	            value="Logout" styleClass="Logout">
+	        </h:commandButton>
+	        <br></br>><br></br>>
+   
+    </b:container>		
+	
+	
+	
 </h:body>
 </html>
