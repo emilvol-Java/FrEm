@@ -17,6 +17,7 @@
 package org.jboss.tools.examples.controller;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
@@ -85,11 +86,25 @@ public class MemberController implements Serializable {
     	return false;
     }
     
+    	//logout event, invalidate session
+  		// want to have predestroy but then need void return type, and need string return type for faces-config.xml for the redirection to index.xhtml..
+        // need to solve it somehow... how ??
+    	@PreDestroy
+    	public void destroy() {	
+  			
+  			
+  		}
+    
+  		
+    
    
     public boolean validateRetypedPassword(String pass, String passCheck){    		
        	return pass.equals(passCheck);
     }
     
+    public String getMemberName() {
+    	return newMember.getfName();
+    }
     
     
     public void register() throws Exception {

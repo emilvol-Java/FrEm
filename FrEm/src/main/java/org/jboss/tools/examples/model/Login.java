@@ -2,6 +2,8 @@ package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
 
+import javax.annotation.PreDestroy;
+import javax.ejb.Remove;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
@@ -16,7 +18,6 @@ import org.jboss.tools.examples.util.SessionUtils;
 
 
 @ManagedBean
-@SessionScoped
 public class Login implements Serializable {
 
 
@@ -71,7 +72,10 @@ public class Login implements Serializable {
 	}
 	
 	//logout event, invalidate session
-		public String logout() {		
+		public String logout() throws Throwable {	
+			memberControl.destroy();
+			
+			System.out.println("Logout gjort................................" +memberControl.getMemberName());
 			return "logout";
 		}
 	
