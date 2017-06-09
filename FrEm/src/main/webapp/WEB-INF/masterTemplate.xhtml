@@ -19,6 +19,7 @@
 	                <b:navLink data-target="register" value="Register" href="RegisterDog.xhtml"></b:navLink>
 	                <b:navLink data-target="Courses" value="Courses" href="courses.xhtml"></b:navLink>
 	                <b:navLink data-target="Contact" value="Contact" href="contact.xhtml"></b:navLink>
+	                <b:navLink data-target="Logout" value="Logout" href="index.xhtml" action="#{login.logout}"></b:navLink>
 	            </b:navbarLinks>
 	    	</b:navBar>
 	    	
@@ -31,10 +32,10 @@
         </div>
         
         <b:container>
-        	<div id="dogcontent"><ui:insert name="dogcontent">Default content</ui:insert></div>
-       		<div id="logoutbut">
-	 			<h:commandButton id="logout" action="#{login.logout}" value="Logout" styleClass="Logout"></h:commandButton>
-		    </div>
+        	<div id="maincontent"><ui:insert name="maincontent">Default content</ui:insert>
+        	</div>
+        	
+       		
 	   		
 	   		<div id="footer">
 	   				<ui:insert name="footer">
