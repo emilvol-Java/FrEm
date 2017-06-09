@@ -17,6 +17,7 @@
 package org.jboss.tools.examples.controller;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
@@ -28,13 +29,16 @@ import org.jboss.tools.examples.data.MemberRepository;
 import org.jboss.tools.examples.model.DefinedDate;
 import org.jboss.tools.examples.model.Member;
 import org.jboss.tools.examples.service.MemberRegistration;
+import java.io.Serializable;
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
 // EL name
 // Read more about the @Model stereotype in this FAQ:
 // http://www.cdi-spec.org/faq/#accordion6
-@Model
-public class MemberController {
+@SuppressWarnings("serial")
+@Named
+@SessionScoped
+public class MemberController implements Serializable {
 	
 	@Named
 	private String pwdCheck="";
