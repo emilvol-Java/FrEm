@@ -1,0 +1,23 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#logoutbut {
+	float: left;
+	padding: 15px 0 0 0;
+	position: relative;
+}
+
+
+#footer {
+	height: 40px;
+	bottom: 25px;
+	position: absolute;
+}
+
+
+
+
+
