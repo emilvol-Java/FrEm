@@ -1,46 +1,3 @@
-<!-- <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-      
-<h:head>
-
-	<h:outputStylesheet library = "css" name = "login.css" /> 
-	<title>Home</title>
-
-</h:head> 
-<h:body>
-	   
-	
-	<b:container>
-			<div id="navbarLoggedin"><ui:insert name="navbarLoggedin">Default content</ui:insert></div>
-			<div id="header_home">
-	             <img src="resources/gfx/banner-dog.jpg" />
-				 <h3>Welcome #{newMember.fName}!</h3>         	
-	        </div>
-			
-				<h:form styleClass="form-signin" prependId="false">
-									
-					<b:commandButton look="primary btn-block" value="Register" icon="log-in" size="lg" action="/RegisterDog.xhtml"/>
-					<h:commandButton id="logout" action="#{login.logout}"
-	            		value="Logout" styleClass="Logout">
-	        		</h:commandButton>
-	        	
-				</h:form>
-			   	
-	     	
-    </b:container>		
-			
-	
-</h:body>
-</html> -->
-
-
-
-
 <ui:composition template="/WEB-INF/masterTemplate.xhtml"
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:f="http://xmlns.jcp.org/jsf/core"
@@ -53,14 +10,14 @@
     </ui:define>
 
     <ui:define name="dogcontent">
-   		 <h2>-</h2>
+   		 
+   		 
          <h3 style="color:blue; font-family:Arial Black;"> Welcome #{newMember.fName} #{newMember.sName}!</h3> 
-         <b:formGroup>
-         	<b:form>
-         	
-         	</b:form>
-         </b:formGroup>
-         
+                 
+         <h:form styleClass="form-signin" prependId="false">
+			<b:commandButton look="primary btn-block" value="Register" icon="log-in" size="lg" action="/RegisterDog.xhtml"/>
+					
+	     </h:form>
     </ui:define>
     
 </ui:composition>

@@ -5,6 +5,7 @@
     xmlns:h="http://xmlns.jcp.org/jsf/html"
     xmlns:b="http://bootsfaces.net/ui"
     xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
     <h:head>
         <title><ui:insert name="title"></ui:insert></title>
     </h:head>
@@ -14,26 +15,37 @@
         	<b:navBar brand="Dogs Angels" brandHref="#" fixed="top" inverse="true">
 	            <b:navbarLinks>
 	                <b:navLink data-target="home" value="Home" href="home.xhtml"></b:navLink>
-	                <b:navLink data-target="home" value="Register" href="RegisterDog.xhtml"></b:navLink>
-	                <b:navLink value="Courses" href="#courses"></b:navLink>
-	                <b:navLink value="Contact" href="#contact"></b:navLink>
+	                <b:navLink data-target="register" value="Register" href="RegisterDog.xhtml"></b:navLink>
+	                <b:navLink data-target="Courses" value="Courses" href="courses.xhtml"></b:navLink>
+	                <b:navLink data-target="Contact" value="Contact" href="contact.xhtml"></b:navLink>
 	            </b:navbarLinks>
 	    	</b:navBar>
 	    	
 	    	<b:container>
 		    	<div id="header_home">
-		             <img src="resources/gfx/banner-dog.jpg" />
+		             <img src="resources/gfx/dog_banner.jpg" />
 		        </div>
 		    </b:container>
         
         </div>
-        <div id="dogcontent"><ui:insert name="dogcontent">Default content</ui:insert></div>
-<!--         <div id="logout"><ui:insert name="logout">Logout</ui:insert>logout</div>
- -->        
- 		<div id="logoutbut">
- 			<h:commandButton id="logout" action="#{login.logout}" value="Logout" styleClass="Logout">
-	        		</h:commandButton>
-	    </div>
-<!--         <div id="footer"><ui:insert name="footer">Logout</ui:insert>Footer</div>
- -->    </h:body>
+        
+        <b:container>
+        	<div id="dogcontent"><ui:insert name="dogcontent">Default content</ui:insert></div>
+       		<div id="logoutbut">
+	 			<h:commandButton id="logout" action="#{login.logout}" value="Logout" styleClass="Logout"></h:commandButton>
+		    </div>
+	   		
+	   		<div id="footer">
+	   				<ui:insert name="footer">
+						
+						<b:socialShare shares="twitter,linkedin,facebook" 
+						               showLabel="true" show-count="false"
+						               text="BootsFaces rocks!" block-message="Click to unblock the share buttons" />
+						
+						<b:socialShare shares="twitter,linkedin" disable-block="true" />
+					</ui:insert>
+			</div>
+   		</b:container>
+ 
+ 	</h:body>
 </html>
