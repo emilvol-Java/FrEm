@@ -15,11 +15,6 @@ html, body {
 
 }
 
-#logoutbut {
-	float: left;
-	padding: 15px 0 0 0;
-	position: relative;
-}
 #footer {
 	height: 40px;
 	bottom: 25px;

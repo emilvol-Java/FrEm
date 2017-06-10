@@ -18,10 +18,8 @@ import org.jboss.tools.examples.util.SessionUtils;
 
 
 @ManagedBean
-public class Login implements Serializable {
+public class Login {
 
-
-	private static final long serialVersionUID = 6075044697570830467L;
 
 	@Named
 	private String pwd="";
@@ -69,7 +67,7 @@ public class Login implements Serializable {
 	}
 	
 	//logout event, invalidate session
-		public void loggaout() throws Throwable {	
+		public void logout() throws Throwable {	
 			memberControl.killSession();
 			
 			System.out.println("Logout gjort................................" +memberControl.getMemberName());
