@@ -91,7 +91,6 @@ public class MemberController implements Serializable {
     }
     
 
-    	@Remove
     	public void killSession() throws IOException {	
     		 ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
     		 ec.invalidateSession();
