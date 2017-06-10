@@ -69,7 +69,7 @@ public class Login implements Serializable {
 	}
 	
 	//logout event, invalidate session
-		public void logout() throws Throwable {	
+		public void loggaout() throws Throwable {	
 			memberControl.killSession();
 			
 			System.out.println("Logout gjort................................" +memberControl.getMemberName());

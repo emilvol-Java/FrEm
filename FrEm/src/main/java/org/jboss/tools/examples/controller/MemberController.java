@@ -90,14 +90,14 @@ public class MemberController implements Serializable {
     	return false;
     }
     
-    	//logout event, invalidate session
-  		// want to have predestroy but then need void return type, and need string return type for faces-config.xml for the redirection to index.xhtml..
-        // need to solve it somehow... how ??
+
     	@Remove
     	public void killSession() throws IOException {	
     		 ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
     		 ec.invalidateSession();
     		 ec.redirect(ec.getRequestContextPath() + "/index.xhtml");
+    		 
+//    		 FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
   			
   		}
     
