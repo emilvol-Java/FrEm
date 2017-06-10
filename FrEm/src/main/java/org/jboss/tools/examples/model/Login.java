@@ -58,25 +58,22 @@ public class Login implements Serializable {
 	public String validateUsernamePassword() {
 		System.out.println("[validateUsernamePassword] : userEmail :"+useremail+" PWD: "+pwd);
 		boolean valid = memberControl.validate(useremail, pwd);
-		if (valid) {		
+		if (valid) {
+			System.out.println("[validateUsernamePassword] : sucess");
 			return "success"; 
 		} else {
-//			FacesContext.getCurrentInstance().addMessage(
-//			null,
-//			new FacesMessage(FacesMessage.SEVERITY_WARN,
-//					"Incorrect Username and Password",
-//					"Please enter correct username and Password"));
-			
+
+			System.out.println("[validateUsernamePassword] : failure");
 			return "failure";
 		}
 	}
 	
 	//logout event, invalidate session
-		public String logout() throws Throwable {	
-			memberControl.destroy();
+		public void logout() throws Throwable {	
+			memberControl.killSession();
 			
 			System.out.println("Logout gjort................................" +memberControl.getMemberName());
-			return "logout";
+//			return "logout";
 		}
 	
 }

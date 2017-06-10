@@ -18,9 +18,11 @@ package org.jboss.tools.examples.controller;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import javax.ejb.Remove;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -29,6 +31,8 @@ import org.jboss.tools.examples.data.MemberRepository;
 import org.jboss.tools.examples.model.DefinedDate;
 import org.jboss.tools.examples.model.Member;
 import org.jboss.tools.examples.service.MemberRegistration;
+
+import java.io.IOException;
 import java.io.Serializable;
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
@@ -89,9 +93,11 @@ public class MemberController implements Serializable {
     	//logout event, invalidate session
   		// want to have predestroy but then need void return type, and need string return type for faces-config.xml for the redirection to index.xhtml..
         // need to solve it somehow... how ??
-    	@PreDestroy
-    	public void destroy() {	
-  			
+    	@Remove
+    	public void killSession() throws IOException {	
+    		 ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+    		 ec.invalidateSession();
+    		 ec.redirect(ec.getRequestContextPath() + "/index.xhtml");
   			
   		}
     
