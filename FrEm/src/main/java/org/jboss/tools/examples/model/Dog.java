@@ -11,6 +11,8 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.hibernate.validator.constraints.Email;
+
 @SuppressWarnings("serial")
 @Entity
 @XmlRootElement 
@@ -21,8 +23,27 @@ public class Dog implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-
     @NotNull
+    @Email
+    private String owner;
+    
+    public String getOwner() {
+		return owner;
+	}
+
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+
+	public String getDogname() {
+		return dogname;
+	}
+
+	public void setDogname(String dogname) {
+		this.dogname = dogname;
+	}
+
+	@NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[^0-9]*", message = "Given name must not contain numbers")
     private String breed;

@@ -27,6 +27,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.jboss.tools.examples.data.DogListProducer;
 import org.jboss.tools.examples.data.MemberRepository;
 import org.jboss.tools.examples.model.DefinedDate;
 import org.jboss.tools.examples.model.Member;
@@ -109,6 +110,9 @@ public class MemberController implements Serializable {
     
     public String getMemberName() {
     	return newMember.getfName();
+    }
+    public String getMemberEmail() {
+    	return newMember.getEmail();
     }
     
     

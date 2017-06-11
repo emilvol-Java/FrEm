@@ -26,6 +26,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
@@ -50,6 +51,9 @@ public class Member implements Serializable {
     
     @ManyToMany
     private List<Course> courseEnlisted;
+    
+    @OneToMany
+    private List<Dog> dogList;
     
     @NotNull
     @Size(min = 1, max = 25)
@@ -87,6 +91,13 @@ public class Member implements Serializable {
 	    private String startDate;
 	 
 
+	public void addDogToList(Dog doggy){
+		dogList.add(doggy);
+	}
+	
+	public void removeDogFromList(Dog doggy){
+		
+	}
 			 	 
     public String getPassWord() {
 		return passWord;
