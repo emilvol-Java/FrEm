@@ -12,8 +12,17 @@
     <ui:define name="maincontent">
    		
          <h3 style="color:blue; font-family:Arial Black;"> Check out your courses #{newMember.fName} #{newMember.sName}!</h3> 
-              
+            <h:form>
+    <b:dataTable value="#{courses}" var="_course">
+        <b:dataTableColumn value="#{_course.courseName}"/>
+        <b:dataTableColumn value="#{_course.coursePrice}" />
+        <b:dataTableColumn value="#{_course.startDate}" order="asc"/>
+        <b:dataTableColumn value="#{_course.endDate}"  />
+        <b:dataTableColumn value="#{_course.numParticipants}" />
+    </b:dataTable>
+</h:form>  
                  
     </ui:define>
     
 </ui:composition>
+
