@@ -17,6 +17,7 @@
 package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.persistence.Column;
@@ -24,6 +25,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
@@ -46,6 +48,8 @@ public class Member implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
+    @ManyToMany
+    private List<Course> courseEnlisted;
     
     @NotNull
     @Size(min = 1, max = 25)
@@ -145,5 +149,9 @@ public class Member implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    
+    public void enlistToCourse(Course c){
+    	courseEnlisted.add(c);
     }
 }
