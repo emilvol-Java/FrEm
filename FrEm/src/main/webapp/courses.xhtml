@@ -10,17 +10,19 @@
     </ui:define>
 
     <ui:define name="maincontent">
-   		<f:view locale="#{localeBean.locale}"/>
          <h3 style="color:blue; font-family:Arial Black;"> Check out your courses #{newMember.fName} #{newMember.sName}!</h3> 
             <h:form>
             <b:container>
 			    <b:dataTable value="#{courses}" var="_course">
-			        <b:dataTableColumn value="#{_course.courseName}"/>
+			        <b:dataTableColumn value="#{_course.courseName}" label = "Course name"/>
 			        <b:dataTableColumn value="#{_course.coursePrice}" label = "Price"/>
-			        <b:dataTableColumn value="#{_course.startDate}" order="asc"/>
-			        <b:dataTableColumn value="#{_course.endDate}"  />
+			        <b:dataTableColumn value="#{_course.startDate}" label="Start date" order="asc"/>
+			        <b:dataTableColumn value="#{_course.endDate}"  label="End date"/>
 			        <b:dataTableColumn value="#{_course.participants} (#{_course.numParticipants})"  label="Participants"/>
 			        <b:dataTableColumn value="#{_course.courseDescr}" label = "Description"/>
+			        <b:dataTableColumn label = " ">
+			        	<b:button look="success" value="Sign up"></b:button>
+			        </b:dataTableColumn>
 			    </b:dataTable>
    			 </b:container>
 			</h:form>  
