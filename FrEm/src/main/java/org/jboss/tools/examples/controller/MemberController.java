@@ -95,7 +95,7 @@ public class MemberController implements Serializable {
     		 ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
     		 ec.invalidateSession();
     		 ec.redirect(ec.getRequestContextPath() + "/index.xhtml");
-    		 
+    		 initNewMember();
 //    		 FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
   			
   		}
