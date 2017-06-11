@@ -1,11 +1,14 @@
 package org.jboss.tools.examples.model;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 import javax.annotation.PreDestroy;
 import javax.ejb.Remove;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpSession;
@@ -67,10 +70,12 @@ public class Login {
 	}
 	
 	//logout event, invalidate session
-		public void logout() throws Throwable {	
-			memberControl.killSession();
-			
-			System.out.println("Logout gjort................................" +memberControl.getMemberName());
+		public void logout() throws Throwable{	
+//			memberControl.killSession();
+			 ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+	   		 ec.invalidateSession();
+	   		 ec.redirect(ec.getRequestContextPath() + "/index.xhtml");
+			 System.out.println("Logout gjort......" +memberControl.getMemberName());
 //			return "logout";
 		}
 	
