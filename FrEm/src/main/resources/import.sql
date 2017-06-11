@@ -24,8 +24,8 @@ insert into Member (id, fName,sName, PASSWORD, email, phone_number, STARTDATE) v
 insert into Dog (id, dogname, breed, born, vaccinated) values (0, 'Beni', 'Collie', '2007', true)
 insert into Dog (id, dogname, breed, born, vaccinated) values (1, 'Skallis', 'Dobberman', '2011', true)
 
-insert into Course (id, COURSENAME, coursePrice, MAXPARTICIPANTS, COURSEDESRCIPTION, STARTDATE, ENDDATE) values (0, 'Valpkurs', 300, 10, 'Kul kurs', '2017-09-09', '2017-10-10')
-insert into Course (id, COURSENAME, coursePrice, MAXPARTICIPANTS, COURSEDESRCIPTION, STARTDATE, ENDDATE) values (1, 'Lydnad 1', 500, 8, 'Läskig kurs', '2017-08-11', '2017-10-22'); 
-insert into Course (id, COURSENAME, coursePrice, MAXPARTICIPANTS, COURSEDESRCIPTION, STARTDATE, ENDDATE) values (2, 'Bita hårt', 500, 3, 'Tuff kurs', '2017-01-11', '2017-01-22');
-insert into Course (id, COURSENAME, coursePrice, MAXPARTICIPANTS, COURSEDESRCIPTION, STARTDATE, ENDDATE) values (3, 'Döda elaking', 500, 8, 'Riktigt farlig kurs', '2017-06-11', '2017-10-22'); 
+insert into Course (id, COURSENAME, coursePrice, MAXPARTICIPANTS, COURSEDESRCIPTION, STARTDATE, ENDDATE, PARTICIPANTS) values (0, 'Valpkurs', 300, 10, 'Kul kurs', '2017-09-09', '2017-10-10',0)
+insert into Course (id, COURSENAME, coursePrice, MAXPARTICIPANTS, COURSEDESRCIPTION, STARTDATE, ENDDATE, PARTICIPANTS) values (1, 'Lydnad 1', 500, 8, 'Läskig kurs', '2017-08-11', '2017-10-22',0); 
+insert into Course (id, COURSENAME, coursePrice, MAXPARTICIPANTS, COURSEDESRCIPTION, STARTDATE, ENDDATE, PARTICIPANTS) values (2, 'Bita husse', 500, 3, 'Tuff kurs', '2017-01-11', '2017-01-22',0);
+insert into Course (id, COURSENAME, coursePrice, MAXPARTICIPANTS, COURSEDESRCIPTION, STARTDATE, ENDDATE, PARTICIPANTS) values (3, 'Bita elaking', 500, 8, 'Riktigt farlig kurs', '2017-06-11', '2017-10-22',0); 
 

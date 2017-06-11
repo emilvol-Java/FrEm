@@ -54,8 +54,19 @@ public class Course implements Serializable {
     @Column(name="MAXPARTICIPANTS")
     private int numParticipants;
     
+    @NotNull
+    @Size(min = 1, max = 4)
+    @Column(name="PARTICIPANTS")
+    private int participants;
     
-    
+
+	public int getParticipants() {
+		return participants;
+	}
+
+	public void setParticipants(int participants) {
+		this.participants = participants;
+	}
 
 	public String getStartDate() {
 		return startDate.toString();
