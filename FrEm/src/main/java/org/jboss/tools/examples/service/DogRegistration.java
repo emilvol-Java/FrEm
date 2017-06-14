@@ -18,13 +18,13 @@ public class DogRegistration {
     private EntityManager em;
 
     @Inject
-    private Event<Dog> memberEventSrc;
+    private Event<Dog> dogEventSrc;
 
     public void register(Dog dog) throws Exception {
     	
         log.info("Registering " + dog.getName()+ " " + dog.getBreed());
         em.persist(dog);
-        memberEventSrc.fire(dog);
+        dogEventSrc.fire(dog);
     }
     //   
 }

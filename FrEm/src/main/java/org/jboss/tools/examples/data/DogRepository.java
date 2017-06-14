@@ -30,7 +30,7 @@ public class DogRepository {
 	        // Swap criteria statements if you would like to try out type-safe criteria queries, a new 
 	        // feature in JPA 2.0
 	        // criteria.select(member).orderBy(cb.asc(member.get(Member_.name)));
-	        criteria.select(dog).orderBy(cb.asc(dog.get("name")));
+	        criteria.select(dog).orderBy(cb.asc(dog.get("dogname")));
 	        return em.createQuery(criteria).getResultList();
 	    }
 }

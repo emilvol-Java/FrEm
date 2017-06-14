@@ -38,7 +38,7 @@ public class CourseController {
 	            String errorMessage = getRootErrorMessage(e);
 	            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage, "Registration unsuccessful");
 	            facesContext.addMessage(null, m);
-	        }
+	        }                                                                                                                              
 	    }
 
 	    private String getRootErrorMessage(Exception e) {

@@ -17,14 +17,14 @@ public class CourseListProducer {
 	  @Inject
 	    private CourseRepository courseRepository;
 
-	    private List<Course> course;
+	    private List<Course> courses; 
 
 	    // @Named provides access the return value via the EL variable name "members" in the UI (e.g.
 	    // Facelets or JSP view)    
 	    @Produces
 	    @Named
 	    public List<Course> getCourses() {
-	        return course;
+	        return courses;
 	    }
 
 	    public void onCourseListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Course course) {
@@ -33,6 +33,6 @@ public class CourseListProducer {
 
 	    @PostConstruct
 	    public void retrieveAllCoursesOrderedByName() {
-	        course = courseRepository.findAllOrderedByName();
+	        courses = courseRepository.findAllOrderedByName();
 	    }
 }

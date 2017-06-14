@@ -6,10 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.validator.constraints.Email;
 
 @SuppressWarnings("serial")
 @Entity
@@ -21,8 +24,28 @@ public class Dog implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-
+    @OneToOne
     @NotNull
+    @Email
+    private Member owner;
+    
+    public Member getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Member owner) {
+		this.owner = owner;
+	}
+
+	public String getDogname() {
+		return dogname;
+	}
+
+	public void setDogname(String dogname) {
+		this.dogname = dogname;
+	}
+
+	@NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[^0-9]*", message = "Given name must not contain numbers")
     private String breed;

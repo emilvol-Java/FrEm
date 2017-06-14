@@ -1,11 +1,14 @@
 package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -21,6 +24,8 @@ public class Course implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
+    @ManyToMany
+    private List<Member> coursemembers;
     
     @NotNull
     @Size(min = 1, max = 25)
@@ -54,8 +59,19 @@ public class Course implements Serializable {
     @Column(name="MAXPARTICIPANTS")
     private int numParticipants;
     
+    @NotNull
+    @Size(min = 1, max = 4)
+    @Column(name="PARTICIPANTS")
+    private int participants=0;
     
-    
+
+	public int getParticipants() {
+		return participants;
+	}
+
+	public void setParticipants(int participants) {
+		this.participants = participants;
+	}
 
 	public String getStartDate() {
 		return startDate.toString();
@@ -104,7 +120,17 @@ public class Course implements Serializable {
 	public void setCoursePrice(int coursePrice) {
 		this.coursePrice = coursePrice;
 	}
-
+	
+	public void addmemberToCourse(Member mem){
+		coursemembers.add(mem);
+	}
+	
+	public void removeMemberFromList(Member mem){
+		for(Member m:coursemembers){
+			if(m.getEmail().equals(mem.getEmail()))
+				coursemembers.remove(mem);
+		}
+	}
 
 //	public DefinedDate getStartDate() {
 //		return startDate;

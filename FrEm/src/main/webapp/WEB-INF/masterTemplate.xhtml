@@ -19,15 +19,19 @@
 	                <b:navLink data-target="register" value="Register" href="RegisterDog.xhtml"></b:navLink>
 	                <b:navLink data-target="Courses" value="Courses" href="courses.xhtml"></b:navLink>
 	                <b:navLink data-target="Contact" value="Contact" href="contact.xhtml"></b:navLink>
+
 	            </b:navbarLinks>
-	            <b:button look="danger" value="Logout" onclick="return failure;>
-	            </b:button>
+	           <h:form>
+	            <b:commandButton value="logout" look="danger" action="#{login.logout()}" />
+	            </h:form>
 	    	</b:navBar>
 	    	
 	    	<b:container>
 		    	<div id="header_home">
 		             <img src="resources/gfx/dog_banner.jpg" />
 		        </div>
+		    
+		       
 		    </b:container>
         
         </div>

@@ -17,13 +17,17 @@
 package org.jboss.tools.examples.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
@@ -34,6 +38,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.jboss.tools.examples.data.DogRepository;
 
 @SuppressWarnings("serial")
 @Entity
@@ -46,6 +51,11 @@ public class Member implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     
+    @ManyToMany
+    private List<Course> courseEnlisted;
+    
+    @OneToMany
+    private List<Dog> dogList;
     
     @NotNull
     @Size(min = 1, max = 25)
@@ -83,6 +93,24 @@ public class Member implements Serializable {
 	    private String startDate;
 	 
 
+	public void addDogToList(Dog doggy){
+		dogList.add(doggy);
+	}
+//	@Inject 
+//	DogRepository dogrepo;
+//	
+//    public void retrieveAllDogsByEmail() {
+//        dogList = dogrepo.findAllOrderedByName();
+//        for(Dog dd:dogList){
+//        	if(!dd.getOwner().equals(this.email)){
+//        		dogList.remove(dd);
+//        	}
+//        }
+//    }
+	
+	public void removeDogFromList(Dog doggy){
+		
+	}
 			 	 
     public String getPassWord() {
 		return passWord;
@@ -145,5 +173,9 @@ public class Member implements Serializable {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    
+    public void enlistToCourse(Course c){
+    	courseEnlisted.add(c);
     }
 }

@@ -16,6 +16,19 @@
 			 <b:commandButton look="primary" value="Register" icon="log-in" size="lg" action="/RegisterDog.xhtml"/>
 						
 	     </h:form>
+	      <h:form>
+            <b:container>
+			    <b:dataTable value="#{dogList}" var="_dog">
+			        <b:dataTableColumn value="#{_dog.dogname}" label = "Dog name"/>
+			        <b:dataTableColumn value="#{_dog.breed}" label = "Breed"/>
+			        <b:dataTableColumn value="#{_dog.born}" label="Born" order="asc"/>
+	
+			        <b:dataTableColumn label = " ">
+			        	<b:button look="warning" value="Remove"></b:button>
+			        </b:dataTableColumn>
+			    </b:dataTable>
+   			 </b:container>
+			</h:form>  
     </ui:define>
     
 </ui:composition>
