@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 import javax.annotation.PreDestroy;
 import javax.ejb.Remove;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -61,13 +62,28 @@ public class Login {
 		boolean valid = memberControl.validate(useremail, pwd);
 		if (valid) {
 			System.out.println("[validateUsernamePassword] : sucess");
+			
 			return "success"; 
+
 		} else {
 
 			System.out.println("[validateUsernamePassword] : failure");
+			
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Username and password doesn't match. Try again! ");
+            FacesContext.getCurrentInstance().addMessage("loginForm:password", msg);
+			
 			return "failure";
 		}
 	}
+	
+	
+	public void forgotPassword() {
+		
+		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Contact Dog Angels support team to receive a new password. ");
+        FacesContext.getCurrentInstance().addMessage("loginForm:password", msg);
+		
+	}
+	
 	
 	//logout event, invalidate session
 		public void logout() throws Throwable{	
