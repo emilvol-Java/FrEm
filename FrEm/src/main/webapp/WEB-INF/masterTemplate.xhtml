@@ -12,7 +12,7 @@
     </h:head>
     <h:body>
         <div id="header">
-        	<h:form>
+        	<b:form>
 	        	<b:navBar brand="Dogs Angels" brandHref="#" fixed="top" inverse="true">
 		            
 		            <b:navbarLinks>
@@ -21,11 +21,14 @@
 		                <b:navLink data-target="Courses" value="Courses" href="courses.xhtml"></b:navLink>
 		                <b:navLink data-target="Contact" value="Contact" href="contact.xhtml"></b:navLink>
 					</b:navbarLinks>
-		           
+		           <b:form>
 		            	<b:commandButton value="logout" look="danger" action="#{login.logout()}" />
-		        
+		        	</b:form>
 		        </b:navBar>
-	    	</h:form>
+	    	</b:form>
+	    	<b:form>
+	    	
+	    	</b:form>
 	    	 
 	    	<b:container>
 		    	<div id="header_home">
