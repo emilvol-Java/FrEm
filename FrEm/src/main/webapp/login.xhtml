@@ -47,7 +47,7 @@
 				</b:column>
 				<b:column medium-screen="4">
 					<b:inputText placeholder="Username" id="username" value="#{login.useremail}"
-								ajax="false" autocomplete="false" update="@(.message)">
+								ajax="true" autocomplete="false" update="@(.message)">
 						<f:facet name="prepend">
 							<b:icon name="user" />
 						</f:facet>
@@ -64,7 +64,7 @@
 				</b:column>
 				<b:column medium-screen="4">
 					<b:inputSecret placeholder="Password" id="password" value="#{login.pwd}"
-									ajax="false" autocomplete="false" update="@(.message)">
+									ajax="true" autocomplete="false" update="@(.message)">
 						<f:facet name="prepend">
 							<b:iconAwesome name="key" />	
 						</f:facet>
