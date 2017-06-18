@@ -9,88 +9,58 @@
 <h:head>
 	<title>Login</title>
 </h:head>
+
       
 <h:body>
 
- 	<b:container>
-		 <h:form styleClass="form-signin" prependId="false">
-		 	
-		 	<h2 class="form-signin-heading">Please login!</h2>
-			<b:inputText id="username" placeholder= "Username" value="#{login.useremail}">
-                    <f:facet name="prepend">
-                        <b:icon name="user" />
-                    </f:facet>
-            </b:inputText>
-			
-            <b:inputText id="password" placeholder="Password" type="password" value="#{login.pwd}">
-                    <f:facet name="prepend">
-                        <b:iconAwesome name="key" />
-                    </f:facet>
-            </b:inputText>
-            <b:commandButton look="primary btn-block" value="Login" icon="log-in" size="lg" action="#{login.validateUsernamePassword()}"/>
-			
-		</h:form>
-	</b:container>
 
-<!-- See login example at: https://showcase.bootsfaces.net/layout/basic.jsf -->
-
-
-<!-- <h:form id="loginForm">
-
-	<b:container layout="fluid">
-	<b:form>
-		<b:panel title ="login screen" look="primary">
-			
-			<b:row>
-				<b:column medium-screen="2">
-					<h:outputText value="Username:" for="username" />
-				</b:column>
-				<b:column medium-screen="4">
-					<b:inputText placeholder="Username" id="username" value="#{login.useremail}"
-								ajax="true" autocomplete="false" update="@(.message)">
-						<f:facet name="prepend">
-							<b:icon name="user" />
-						</f:facet>
-					</b:inputText>
-				</b:column>
-				<b:column medium-screen="6" style-class="message">
-					<b:message for="username" />
-				</b:column>
-			</b:row>
-			
-			<b:row>
-				<b:column medium-screen="2">
-					<h:outputText value="Password:" />
-				</b:column>
-				<b:column medium-screen="4">
-					<b:inputSecret placeholder="Password" id="password" value="#{login.pwd}"
-									ajax="true" autocomplete="false" update="@(.message)">
-						<f:facet name="prepend">
-							<b:iconAwesome name="key" />	
-						</f:facet>
-					</b:inputSecret>
-				</b:column>
-				<b:column medium-screen="6" style-class="message">									   	&lt; = <    &gt; = > 
- 					<b:message for="password" line-break-tag="&lt;p&gt;&lt;hr /&gt;&lt;/p&gt;" />      some signs greater than and less than had to be rewritten
-				</b:column>																			   line-break-tag = <p><hr /></p>  
-			</b:row>
-			<b:row>
-				<b:column span="2" offset="2">
-					<b:commandButton value="Login" action="#{login.validateUsernamePassword()}" update="@form"
-							look="primary" style="width:100%" />
-				</b:column>
-				<b:column span="2">
-				<b:commandButton value="Password forgotten" action="login.forgotPassword()" update="@form"
-					look="danger" style="width:100%" />
-				</b:column>
-			</b:row>
-			
-		</b:panel>
-		</b:form>
-	</b:container>
-</h:form>
- -->
-
+	<b:form id="loginForm">
+	  <b:container layout="fluid">
+	    <b:panel title="Login screen" look="primary">
+	      <b:row>
+	        <b:column medium-screen="2">
+	          <h:outputText value="Username:" for="useremail" />
+	        </b:column>
+	        <b:column medium-screen="4">
+	          <b:inputText placeholder="Username" id="useremail" value="#{login.useremail}" required="true">	                      
+	            <f:facet name="prepend">
+	              <b:icon name="user" />
+	            </f:facet>
+	          </b:inputText>
+	        </b:column>
+	        <b:column medium-screen="6" style-class="message">
+	          <b:message for="useremail" />
+	        </b:column>
+	      </b:row>
+	      <b:row tooltip="Validation of input fields.">
+	        <b:column medium-screen="2">
+	          <h:outputText value="Password:" />
+	        </b:column>
+	        <b:column medium-screen="4">
+	          <b:inputSecret placeholder="Password" id="pwd" value="#{login.pwd}" required="true">	                         
+	            <f:facet name="prepend">
+	              <b:iconAwesome name="key" />
+	            </f:facet>
+	          </b:inputSecret>
+	        </b:column>
+	        <b:column medium-screen="6" styleClass="message">
+	          <b:message for="pwd" />
+	        </b:column>
+	      </b:row>
+	      <b:row>
+	        <b:column span="2" offset="2">
+	          <b:commandButton value="login" ajax="true" onclick="ajax:login.validateUsernamePassword()" update="@form" look="primary"
+	            style="width:100%" />
+	        </b:column>
+	        <b:column span="2">
+	          <b:commandButton value="password forgotten" ajax="true" onclick="ajax:login.forgotPassword()" update="@form"
+	            look="danger" style="width:100%" />
+	        </b:column>
+	      </b:row>
+	    </b:panel>
+	  </b:container>
+	</b:form>
+	
 
 </h:body>
 </html>

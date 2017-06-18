@@ -2,7 +2,6 @@ package org.jboss.tools.examples.model;
 
 import java.io.IOException;
 import java.io.Serializable;
-
 import javax.annotation.PreDestroy;
 import javax.ejb.Remove;
 import javax.faces.application.FacesMessage;
@@ -16,8 +15,6 @@ import javax.servlet.http.HttpSession;
 import org.hibernate.validator.constraints.Email;
 import org.jboss.tools.examples.controller.MemberController;
 import org.jboss.tools.examples.util.SessionUtils;
-
-
 
 
 
@@ -57,42 +54,43 @@ public class Login {
 	MemberController memberControl;
 	
 	//validate login
-	public String validateUsernamePassword() {
+	public void validateUsernamePassword() throws Throwable{
 		System.out.println("[validateUsernamePassword] : userEmail :"+useremail+" PWD: "+pwd);
 		boolean valid = memberControl.validate(useremail, pwd);
 		if (valid) {
-			System.out.println("[validateUsernamePassword] : sucess");
+			System.out.println("[validateUsernamePassword] : success");
 			
-			return "success"; 
+			ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+	   		ec.redirect(ec.getRequestContextPath() + "/home.xhtml");
+						
 
 		} else {
 
 			System.out.println("[validateUsernamePassword] : failure");
 			
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Username and password doesn't match. Try again! ");
-            FacesContext.getCurrentInstance().addMessage("loginForm:password", msg);
+            FacesContext.getCurrentInstance().addMessage("loginForm:pwd", msg);
 			
-			return "failure";
 		}
 	}
 	
 	
 	public void forgotPassword() {
-		
+		System.out.println("[Password forgotten]");
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Contact Dog Angels support team to receive a new password. ");
-        FacesContext.getCurrentInstance().addMessage("loginForm:password", msg);
+        FacesContext.getCurrentInstance().addMessage("loginForm:pwd", msg);
 		
 	}
 	
 	
 	//logout event, invalidate session
 		public void logout() throws Throwable{	
-//			memberControl.killSession();
+
 			 ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
 	   		 ec.invalidateSession();
 	   		 ec.redirect(ec.getRequestContextPath() + "/index.xhtml");
 			 System.out.println("Logout gjort......" +memberControl.getMemberName());
-//			return "logout";
+
 		}
 	
 }
