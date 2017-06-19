@@ -8,7 +8,9 @@ html, body {
 	
 }
 
+#logout {
 
+}
 
 #maincontent{
 	min-height: 50px; 
@@ -21,7 +23,10 @@ html, body {
 	position: absolute;
 }
 
-
+h3, h4 {
+	font-family:Arial Black;
+	padding: 10px;
+} 
 
 
 
