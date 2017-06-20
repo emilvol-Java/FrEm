@@ -24,17 +24,17 @@ public class Dog implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
+    
     @NotNull
     @Email
-    private Member owner;
+    private String owner;
     
-    public Member getOwner() {
+    public String getOwner() {
 		return owner;
 	}
 
-	public void setOwner(Member owner) {
-		this.owner = owner;
+	public void setOwner(String owner) {
+		this.owner = owner.toString();
 	}
 
 	public String getDogname() {

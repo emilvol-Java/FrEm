@@ -29,8 +29,9 @@ public class DogController {
         newDog = new Dog();
     }
 
-    public void register() throws Exception {
+    public void register(String mail) throws Exception {
         try {
+        	newDog.setOwner(mail);
             dogRegistration.register(newDog);
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
             facesContext.addMessage(null, m);
