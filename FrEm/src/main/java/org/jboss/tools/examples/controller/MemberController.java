@@ -35,6 +35,7 @@ import org.jboss.tools.examples.service.MemberRegistration;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.List;
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
 // EL name
@@ -72,6 +73,8 @@ public class MemberController implements Serializable {
         newMember = new Member();
         
     }
+    
+    
     
     @Inject 
     MemberRepository memRep;
@@ -115,6 +118,7 @@ public class MemberController implements Serializable {
     	return newMember.getEmail();
     }
     
+
     
     public void register() throws Exception {
     	if (validateRetypedPassword(newMember.getPassWord(), this.pwdCheck)){

@@ -20,7 +20,9 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,7 +40,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.jboss.tools.examples.data.DogRepository;
 
 @SuppressWarnings("serial")
 @Entity
@@ -54,10 +55,13 @@ public class Member implements Serializable {
     @ManyToMany
     private List<Course> courseEnlisted;
     
+    @Named
     @OneToMany
     private List<Dog> dogList;
     
-    @NotNull
+  
+
+	@NotNull
     @Size(min = 1, max = 25)
     @Pattern(regexp = "[^0-9]*", message = "Given name must not contain numbers")
     @Column(name="fName")
@@ -92,7 +96,23 @@ public class Member implements Serializable {
 	    @Column(name="startDate")
 	    private String startDate;
 	 
+	    public List<Dog> getDogList() {
+			return dogList;
+		}
 
+		@Override
+		public String toString() {
+			String list="";
+			for(Dog d:dogList){
+				list = list + " "+d.getName();
+			}
+			return "Member [dogList=" + list + "]";
+		}
+
+		public void setDogList(List<Dog> dogList) {
+			this.dogList = dogList;
+		}
+		
 	public void addDogToList(Dog doggy){
 		dogList.add(doggy);
 	}

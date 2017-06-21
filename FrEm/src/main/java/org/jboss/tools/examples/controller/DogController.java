@@ -8,7 +8,9 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.jboss.tools.examples.data.MemberRepository;
 import org.jboss.tools.examples.model.Dog;
+import org.jboss.tools.examples.model.Member;
 import org.jboss.tools.examples.service.DogRegistration;
 
 @Model
@@ -28,11 +30,21 @@ public class DogController {
     public void initNewDog() {
         newDog = new Dog();
     }
-
+    
+    public void addDogToMember(){
+    	MemberRepository mr = new MemberRepository();
+    	try{
+    	Member mem = mr.findByEmail(newDog.getOwner());
+    	mem.addDogToList(newDog);
+    	}catch(Exception e){System.out.println("Find member failed big time!!!");}
+    	
+    }
     public void register(String mail) throws Exception {
         try {
         	newDog.setOwner(mail);
+        	addDogToMember();
             dogRegistration.register(newDog);
+            System.out.println("REGISTRATION of DOG :" + newDog.getOwner()+" "+newDog.getDogname());
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
             facesContext.addMessage(null, m);
             initNewDog();
