@@ -38,6 +38,13 @@ public class DogResourceRESTService {
     public List<Dog> listAllDogs() {
         return repository.findAllOrderedByName();
     }
+    
+    @GET
+    @Path("{owner}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Dog> listAllOwnersDogs(@PathParam("owner") String owner) {
+        return repository.findAllDogsByOwner("owner");
+    }
 
     @GET
     @Path("/{id:[0-9][0-9]*}")

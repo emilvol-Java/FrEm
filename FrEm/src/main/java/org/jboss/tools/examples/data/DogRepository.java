@@ -1,5 +1,6 @@
 package org.jboss.tools.examples.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -20,10 +21,29 @@ public class DogRepository {
 	        return em.find(Dog.class, id);
 	        
 	    }
+	    
+	    public List<Dog> findAllDogsByOwner(String email) {
+	    	System.out.println("[findAllDogsByOwner] : "+email);
+	    	CriteriaBuilder cb = em.getCriteriaBuilder();
+	    	CriteriaQuery<Dog> criteria = cb.createQuery(Dog.class);
+	        Root<Dog> dog = criteria.from(Dog.class);
+
+	        
+	        List<Dog> tmp = new ArrayList<Dog>();
+	        List<Dog> result = em.createQuery(criteria).getResultList();
+	        for(Dog d:result){
+	        	System.out.println("Loop :"+d.getOwner());
+	        	if(d.getOwner().equals(email))
+	        		tmp.add(d);
+	        }
+	         
+	         return tmp;
+	    }
 	    	
 //  
 
 	    public List<Dog> findAllOrderedByName() {
+        	System.out.println("[findAllOrderedByName] :UNBELIEVABLE");
 	        CriteriaBuilder cb = em.getCriteriaBuilder();
 	        CriteriaQuery<Dog> criteria = cb.createQuery(Dog.class);
 	        Root<Dog> dog = criteria.from(Dog.class);
